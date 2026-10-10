@@ -56,16 +56,16 @@ export function Bulk() {
 
   return (
     <section id="toplu" className="overflow-hidden bg-ink text-paper">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] items-stretch gap-x-[clamp(40px,6vw,96px)] gap-y-12 px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)]">
-        <div className="relative flex flex-col justify-between gap-9 py-2">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] items-stretch gap-x-[clamp(40px,6vw,96px)] gap-y-12 px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)] max-[640px]:gap-y-7 max-[640px]:py-10">
+        <div className="relative flex flex-col justify-between gap-9 py-2 max-[640px]:gap-5 max-[640px]:py-0">
           <div>
             <div className="font-mono text-xs tracking-[.12em] text-accent-light uppercase">
               Premium Araç · Toplu Hesaplama
             </div>
-            <h2 className="mt-5 mb-0 text-[clamp(42px,5vw,72px)] leading-[.95] max-[640px]:text-[38px] font-bold tracking-[-.04em]">
+            <h2 className="mt-5 mb-0 text-[clamp(42px,5vw,72px)] leading-[.95] max-[640px]:mt-3 max-[640px]:text-[30px] font-bold tracking-[-.04em]">
               Yüzlerce ürünü tek seferde hesapla.
             </h2>
-            <p className="mt-[26px] mb-0 max-w-[540px] max-[640px]:mt-4 max-[640px]:text-base text-[clamp(17px,1.5vw,20px)] leading-[1.55] text-dim-2 text-pretty">
+            <p className="mt-[26px] mb-0 max-w-[540px] max-[640px]:mt-3 max-[640px]:text-[14.5px] max-[640px]:leading-[1.5] text-[clamp(17px,1.5vw,20px)] leading-[1.55] text-dim-2 text-pretty">
               Onlarca ürün satıyorsan hepsini hesaplayıcıya tek tek girmen gerekmez. Ürün listeni CSV olarak yükle; her
               ürünün net kârını ve toplamını tek tabloda gör, sonucu Excel olarak indir.
             </p>
@@ -74,17 +74,17 @@ export function Bulk() {
             {STEPS.map((t, i) => (
               <div
                 key={t}
-                className="grid grid-cols-[44px_minmax(0,1fr)] items-baseline gap-3 border-b border-paper/[.12] py-5 max-[640px]:py-3"
+                className="grid grid-cols-[44px_minmax(0,1fr)] max-[640px]:grid-cols-[28px_minmax(0,1fr)] items-baseline gap-3 border-b border-paper/[.12] py-5 max-[640px]:py-2"
               >
                 <span className="font-mono text-[13px] text-dim">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-[clamp(17px,1.4vw,19px)] leading-[1.4]">{t}</span>
+                <span className="text-[clamp(17px,1.4vw,19px)] leading-[1.4] max-[640px]:text-[14px]">{t}</span>
               </div>
             ))}
           </div>
           <div className="flex flex-wrap items-center gap-2.5">
             <button
               onClick={gate(() => fileRef.current?.click())}
-              className="rounded-full border-0 bg-paper px-[26px] py-4 text-[16.5px] font-semibold text-ink hover:bg-white"
+              className="rounded-full border-0 bg-paper px-[26px] py-4 text-[16.5px] font-semibold text-ink hover:bg-white max-[640px]:px-5 max-[640px]:py-2.5 max-[640px]:text-[14px]"
             >
               CSV Yükle
             </button>
@@ -93,7 +93,7 @@ export function Bulk() {
                 setRows(SAMPLE);
                 notify("Örnek veri yüklendi");
               })}
-              className="border-0 bg-transparent px-1.5 py-2.5 text-[16.5px] text-paper underline underline-offset-4"
+              className="border-0 bg-transparent px-1.5 py-2.5 text-[16.5px] text-paper underline max-[640px]:py-1.5 max-[640px]:text-[14px] underline-offset-4"
             >
               Örnek veriyle dene
             </button>
@@ -104,7 +104,7 @@ export function Bulk() {
         <div className="drop-shadow-[0_20px_40px_rgba(0,0,0,.4)]">
           <div
            
-            className="receipt-edge bg-receipt px-[clamp(18px,2.6vw,30px)] pt-[clamp(22px,3vw,32px)] pb-12 font-mono text-[13.5px] tabular-nums text-ink max-[640px]:px-4 max-[640px]:pt-5 max-[640px]:pb-9 max-[640px]:text-[11.5px]"
+            className="receipt-edge bg-receipt px-[clamp(18px,2.6vw,30px)] pt-[clamp(22px,3vw,32px)] pb-12 font-mono text-[13.5px] tabular-nums text-ink max-[640px]:px-3.5 max-[640px]:pt-4 max-[640px]:pb-7 max-[640px]:text-[11px]"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-3">
               <span className="text-[15px] font-semibold tracking-[.2em]">TOPLU KÂR RAPORU</span>
@@ -131,7 +131,7 @@ export function Bulk() {
                   >
                     <span className="flex min-w-0 flex-col gap-0.5">
                       <span className="truncate font-sans text-[15.5px] font-semibold max-[640px]:text-[13.5px]">{row[0]}</span>
-                      <span className="text-[11px] text-muted-2 max-[640px]:text-[9.5px]">
+                      <span className="text-[11px] text-muted-2 max-[640px]:hidden">
                         maliyet {tl(row[2])} · kargo {tl(row[4])}
                       </span>
                     </span>
@@ -154,7 +154,7 @@ export function Bulk() {
               </div>
             </div>
             <div
-              className="mt-[22px] flex flex-wrap gap-2 select-none"
+              className="mt-[22px] max-[640px]:mt-3 flex flex-wrap gap-2 select-none"
               style={{ ...blur, pointerEvents: locked ? "none" : "auto" }}
             >
               <button
