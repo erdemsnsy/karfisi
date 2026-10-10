@@ -1,0 +1,184 @@
+"use client";
+
+import { useEffect } from "react";
+import { pct, signed, tl, upperTr } from "@/lib/format";
+import { PNAME } from "@/lib/constants";
+import { downloadReceiptPng, receiptText } from "@/lib/png";
+import { useApp } from "../app-provider";
+
+const FEED_T = ["translateY(0)", "translateY(-14px)", "translateY(-101%)"] as const;
+
+export function Receipt() {
+  const {
+    form,
+    result: r,
+    premium,
+    hasPrice,
+    feed,
+    feedDur,
+    no,
+    dateStr,
+    receiptRef,
+    setRcptVis,
+    saveHistory,
+    notify,
+    goPremium,
+  } = useApp();
+  const locked = !premium;
+
+  /* fiş ekran dışındayken mobilde alt çubuk görünsün */
+  useEffect(() => {
+    const el = receiptRef.current;
+    if (!el || !window.IntersectionObserver) return;
+    const io = new IntersectionObserver((es) => setRcptVis(es[0].isIntersecting), { threshold: 0.25 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [receiptRef, setRcptVis]);
+
+  const lines: [string, string, number][] = [
+    ["Satış fiyatı", tl(r.P), 600],
+    ["Komisyon kesintisi", "−" + tl(r.commAmt), 400],
+    ["Kargo gideri", "−" + tl(r.S), 400],
+    ["Ürün maliyeti", "−" + tl(r.C), 400],
+    ["KDV kesintisi (net)", premium ? "−" + tl(r.kdvAmt) : "PRO ·  —", 400],
+    ["Gelir vergisi", premium ? "−" + tl(r.tax) : "PRO ·  —", 400],
+  ];
+
+  const copyDetails = () => {
+    const t = receiptText(r, form.name, form.platform, no);
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).catch(() => {
+      const a = document.createElement("textarea");
+      a.value = t;
+      document.body.appendChild(a);
+      a.select();
+      try {
+        document.execCommand("copy");
+      } catch {
+        /* kopyalama desteklenmiyor */
+      }
+      a.remove();
+    });
+    notify("Detaylar panoya kopyalandı");
+  };
+
+  const download = async () => {
+    if (locked) {
+      goPremium();
+      return;
+    }
+    await downloadReceiptPng({ r, name: form.name, platform: form.platform, no });
+    notify("Fiş PNG olarak indirildi");
+  };
+
+  const action =
+    "flex items-center gap-2 border-0 bg-transparent px-1 py-2 font-mono text-[12.5px] tracking-[.1em] uppercase underline decoration-transparent underline-offset-[5px] transition-[opacity,text-decoration-color] duration-150 hover:opacity-100 hover:decoration-ink";
+
+  return (
+    <div className="sticky top-[88px] flex flex-col items-center gap-5 self-start px-[clamp(0px,2vw,24px)] py-2 text-ink">
+      <div
+        ref={receiptRef}
+        className="w-full max-w-[430px] drop-shadow-[0_18px_30px_rgba(20,20,15,.14)] drop-shadow-[0_2px_4px_rgba(20,20,15,.08)]"
+      >
+        {/* yazıcı ağzı */}
+        <div className="relative z-2 h-2.5 rounded-full bg-ink shadow-[inset_0_-2px_0_rgba(255,255,255,.12)]" />
+        <div className="-mt-[5px] mr-2.5 ml-2.5 overflow-hidden">
+          <div
+            className="receipt-edge relative bg-receipt px-6 pt-[34px] pb-11 font-mono text-[13px] leading-normal text-ink"
+            style={{
+              transform: FEED_T[feed],
+              transition: feed ? "none" : `transform ${feedDur}s cubic-bezier(.2,.8,.2,1)`,
+            }}
+          >
+            <div className="flex flex-col gap-1 text-center">
+              <span className="text-[17px] font-semibold tracking-[.22em]">KÂR FİŞİ</span>
+              <span className="text-[11px] text-muted" suppressHydrationWarning>
+                №{String(no).padStart(6, "0")} · {dateStr}
+              </span>
+            </div>
+            <div className="mt-[18px] mb-3 border-t border-dashed border-ink" />
+            <div className="flex flex-col gap-[3px]">
+              <div className="flex justify-between gap-3">
+                <span className="text-muted">ÜRÜN</span>
+                <span className="truncate text-right">{upperTr(form.name.trim() || "—")}</span>
+              </div>
+              <div className="flex justify-between gap-3">
+                <span className="text-muted">PLATFORM</span>
+                <span>{upperTr(PNAME[form.platform])}</span>
+              </div>
+            </div>
+            <div className="my-3 border-t border-dashed border-ink" />
+
+            {hasPrice ? (
+              <>
+                <div className="flex flex-col gap-1.5">
+                  {lines.map(([label, value, w]) => (
+                    <div key={label} className="flex justify-between gap-3 tabular-nums">
+                      <span>{label}</span>
+                      <span style={{ fontWeight: w }}>{value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="my-3.5 border-t-[3px] border-double border-ink" />
+                <div className="flex items-baseline justify-between">
+                  <span className="font-semibold tracking-[.12em]">NET KÂR</span>
+                  <span className="text-[11.5px] text-muted">Kâr marjı: %{pct(r.margin)}</span>
+                </div>
+                <div
+                  className="mt-1.5 font-sans text-[clamp(40px,5vw,54px)] leading-[1.05] font-bold tracking-[-.035em] tabular-nums"
+                  style={{ color: r.net >= 0 ? "#14140F" : "oklch(0.55 0.17 28)" }}
+                >
+                  {signed(r.net)}
+                </div>
+              </>
+            ) : (
+              <div className="flex flex-col items-center gap-3.5 px-1 pt-[34px] pb-[26px] text-center">
+                <div className="flex w-full flex-col gap-[7px]">
+                  {["100%", "82%", "92%", "70%"].map((w) => (
+                    <span key={w} className="h-2 rounded-[2px] bg-ink/[.07]" style={{ width: w }} />
+                  ))}
+                </div>
+                <span className="mt-3.5 font-sans text-2xl leading-[1.15] font-bold tracking-[-.02em]">
+                  Fiyatı gir,
+                  <br />
+                  fişin basılsın.
+                </span>
+                <span className="text-[11.5px] tracking-[.04em] text-muted">
+                  Satış fiyatı girildiğinde hesap burada belirir.
+                </span>
+              </div>
+            )}
+
+            <div className="barcode mt-[26px] h-[46px]" />
+            <div className="mt-2.5 text-center text-[11px] tracking-[.14em] text-muted">YAPTIĞIN HER SATIŞIN GERÇEĞİ</div>
+            {r.net > 0 && hasPrice && (
+              <div className="absolute right-[18px] bottom-24 -rotate-10 rounded-[10px] border-2 border-ink bg-receipt/80 px-2.5 py-1.5 text-center text-[10.5px] leading-[1.3] font-semibold tracking-[.12em] text-ink">
+                ✓ NET KÂR
+                <br />
+                DOĞRULANDI
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex w-full max-w-[410px] items-center justify-center gap-[22px] pt-0.5">
+        <button onClick={saveHistory} className={`${action} font-semibold`}>
+          <span className="text-sm">+</span>Kaydet
+        </button>
+        <span className="size-[3px] rounded-full bg-ink/30" />
+        <button onClick={copyDetails} className={`${action} opacity-[.72]`}>
+          <span className="text-sm">⧉</span>Kopyala
+        </button>
+        <span className="size-[3px] rounded-full bg-ink/30" />
+        <button onClick={download} className={`${action} opacity-[.72]`}>
+          <span className="text-sm">↓</span>İndir
+          {locked && (
+            <span className="rounded-[3px] bg-accent px-[5px] py-0.5 text-[9.5px] tracking-[.1em] text-card no-underline">
+              PRO
+            </span>
+          )}
+        </button>
+      </div>
+    </div>
+  );
+}

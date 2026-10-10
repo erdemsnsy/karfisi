@@ -1,0 +1,910 @@
+{
+  "version": "2026-10-10",
+  "updatedAt": "2026-10-10",
+  "note": "Oranlar yüzde (%) cinsindendir. Aralıklı kategorilerde min/max verilir; hesaplayıcıya varsayılan olarak max (temkinli) uygulanır.",
+  "platforms": {
+    "trendyol": {
+      "name": "Trendyol",
+      "defaultRate": 21.36,
+      "base": "KDV dahil satış fiyatı",
+      "extras": "Kampanya, yeni satıcı ve kadın girişimci indirimleri ayrıca uygulanabilir.",
+      "source": "Trendyol satıcı paneli kategori tarifesi (derleyen: sentos.com.tr, ideasoft.com.tr)",
+      "checkedAt": "2026-10-10"
+    },
+    "hepsiburada": {
+      "name": "Hepsiburada",
+      "defaultRate": 18,
+      "base": "KDV dahil satış fiyatı",
+      "extras": "Komisyon faturasına %20 KDV eklenir.",
+      "source": "Hepsiburada satıcı tarifesi (derleyen: parasut.com, ideasoft.com.tr)",
+      "checkedAt": "2026-10-10"
+    },
+    "amazon": {
+      "name": "Amazon TR",
+      "defaultRate": 15,
+      "base": "Toplam satış fiyatı (ürün + kargo), oranlara KDV eklenir",
+      "extras": "Aylık 99 TL + KDV profesyonel satıcı üyeliği.",
+      "source": "satis.amazon.com.tr/ucretlendirme (resmî)",
+      "checkedAt": "2026-10-10"
+    },
+    "n11": {
+      "name": "N11",
+      "defaultRate": 18,
+      "base": "Brüt satış fiyatı",
+      "extras": "Ek olarak %1 pazarlama + %0,67 pazaryeri hizmet bedeli (+KDV).",
+      "source": "N11 Mağazam komisyon bilgisi (derleyen: dopigo.com, sentos.com.tr)",
+      "checkedAt": "2026-10-10"
+    },
+    "ciceksepeti": {
+      "name": "Çiçeksepeti",
+      "defaultRate": 20,
+      "base": "KDV dahil satış fiyatı",
+      "extras": "",
+      "source": "Çiçeksepeti satıcı tarifesi (derleyen: dopigo.com)",
+      "checkedAt": "2026-10-10"
+    }
+  },
+  "categories": [
+    {
+      "platform": "amazon",
+      "group": "Moda",
+      "category": "Giyim",
+      "min": 15.5,
+      "max": 15.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Moda",
+      "category": "Ayakkabı, çanta ve aksesuarları",
+      "min": 17,
+      "max": 17
+    },
+    {
+      "platform": "amazon",
+      "group": "Moda",
+      "category": "Kol saati",
+      "min": 15.5,
+      "max": 15.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Moda",
+      "category": "Bavul ve seyahat",
+      "min": 16,
+      "max": 16
+    },
+    {
+      "platform": "amazon",
+      "group": "Elektronik",
+      "category": "Elektronik",
+      "min": 9.5,
+      "max": 9.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Elektronik",
+      "category": "Elektronik aksesuar",
+      "min": 11,
+      "max": 11
+    },
+    {
+      "platform": "amazon",
+      "group": "Elektronik",
+      "category": "Cep telefonu",
+      "min": 8,
+      "max": 8
+    },
+    {
+      "platform": "amazon",
+      "group": "Elektronik",
+      "category": "Bilgisayar",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "platform": "amazon",
+      "group": "Elektronik",
+      "category": "Fotoğraf makinesi",
+      "min": 9,
+      "max": 9
+    },
+    {
+      "platform": "amazon",
+      "group": "Elektronik",
+      "category": "Ev eğlence sistemleri",
+      "min": 11.5,
+      "max": 11.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Elektronik",
+      "category": "Beyaz eşya",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "platform": "amazon",
+      "group": "Elektronik",
+      "category": "Küçük ev aletleri",
+      "min": 11,
+      "max": 11
+    },
+    {
+      "platform": "amazon",
+      "group": "Elektronik",
+      "category": "Kişisel bakım cihazları",
+      "min": 13.6,
+      "max": 13.6
+    },
+    {
+      "platform": "amazon",
+      "group": "Kozmetik",
+      "category": "Kişisel bakım ve kozmetik (≤500 TL)",
+      "min": 9,
+      "max": 9
+    },
+    {
+      "platform": "amazon",
+      "group": "Kozmetik",
+      "category": "Kişisel bakım ve kozmetik (>500 TL)",
+      "min": 14,
+      "max": 14
+    },
+    {
+      "platform": "amazon",
+      "group": "Ev & Yaşam",
+      "category": "Mutfak eşyaları ve dekorasyon",
+      "min": 15,
+      "max": 15
+    },
+    {
+      "platform": "amazon",
+      "group": "Ev & Yaşam",
+      "category": "Mobilya",
+      "min": 14.5,
+      "max": 14.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Ev & Yaşam",
+      "category": "Bahçe",
+      "min": 14,
+      "max": 14
+    },
+    {
+      "platform": "amazon",
+      "group": "Ev & Yaşam",
+      "category": "Yapı market",
+      "min": 12.7,
+      "max": 12.7
+    },
+    {
+      "platform": "amazon",
+      "group": "Anne & Bebek",
+      "category": "Oyuncak ve oyun",
+      "min": 13,
+      "max": 13
+    },
+    {
+      "platform": "amazon",
+      "group": "Anne & Bebek",
+      "category": "Bebek ürünleri (giyim hariç)",
+      "min": 11.5,
+      "max": 11.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Hobi",
+      "category": "Kitap",
+      "min": 10.2,
+      "max": 10.2
+    },
+    {
+      "platform": "amazon",
+      "group": "Hobi",
+      "category": "Ofis ürünleri",
+      "min": 13,
+      "max": 13
+    },
+    {
+      "platform": "amazon",
+      "group": "Spor",
+      "category": "Spor",
+      "min": 10,
+      "max": 10
+    },
+    {
+      "platform": "amazon",
+      "group": "Diğer",
+      "category": "Sağlık ve Kişisel Bakım",
+      "min": 13.5,
+      "max": 13.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Diğer",
+      "category": "Gıda Ürünleri",
+      "min": 9,
+      "max": 13
+    },
+    {
+      "platform": "amazon",
+      "group": "Diğer",
+      "category": "Video Oyunu Konsolları",
+      "min": 8.5,
+      "max": 8.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Diğer",
+      "category": "Video Oyunları",
+      "min": 10,
+      "max": 10
+    },
+    {
+      "platform": "amazon",
+      "group": "Diğer",
+      "category": "Otomotiv ve Motosiklet",
+      "min": 12.5,
+      "max": 12.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Diğer",
+      "category": "Evcil Hayvan Ürünleri",
+      "min": 13.5,
+      "max": 13.5
+    },
+    {
+      "platform": "amazon",
+      "group": "Diğer",
+      "category": "Takı",
+      "min": 6,
+      "max": 20
+    },
+    {
+      "platform": "amazon",
+      "group": "Diğer",
+      "category": "Diğer",
+      "min": 10,
+      "max": 10
+    },
+    {
+      "platform": "trendyol",
+      "group": "Moda",
+      "category": "Giyim (üst, alt, iç, spor)",
+      "min": 21.36,
+      "max": 21.36
+    },
+    {
+      "platform": "trendyol",
+      "group": "Moda",
+      "category": "Ayakkabı",
+      "min": 23.39,
+      "max": 23.39
+    },
+    {
+      "platform": "trendyol",
+      "group": "Moda",
+      "category": "Çanta",
+      "min": 21.36,
+      "max": 21.36
+    },
+    {
+      "platform": "trendyol",
+      "group": "Moda",
+      "category": "Saat",
+      "min": 21.36,
+      "max": 21.36
+    },
+    {
+      "platform": "trendyol",
+      "group": "Moda",
+      "category": "Atkı, bere, eldiven, şal",
+      "min": 21.36,
+      "max": 21.36
+    },
+    {
+      "platform": "trendyol",
+      "group": "Moda",
+      "category": "Kemer, şapka, saç aksesuarı",
+      "min": 22.37,
+      "max": 22.37
+    },
+    {
+      "platform": "trendyol",
+      "group": "Moda",
+      "category": "Bijuteri ve gümüş takı",
+      "min": 22.37,
+      "max": 22.37
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Akıllı cep telefonu",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Tuşlu cep telefonu",
+      "min": 10,
+      "max": 10
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Dizüstü bilgisayar",
+      "min": 7.5,
+      "max": 7.5
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Televizyon",
+      "min": 8,
+      "max": 8
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Oyun konsolu",
+      "min": 8,
+      "max": 8
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Beyaz eşya",
+      "min": 11,
+      "max": 11
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Klima, kombi",
+      "min": 11,
+      "max": 11
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Küçük ev aletleri",
+      "min": 15,
+      "max": 15
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Epilatör, saç düzleştirici, tartı",
+      "min": 17.5,
+      "max": 17.5
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Tablet kılıfı, standı, kalemi",
+      "min": 22,
+      "max": 22
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Telefon yedek parça",
+      "min": 27,
+      "max": 27
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Bilgisayar yedek parça",
+      "min": 15.5,
+      "max": 15.5
+    },
+    {
+      "platform": "trendyol",
+      "group": "Elektronik",
+      "category": "Dijital hediye kartı",
+      "min": 5,
+      "max": 5
+    },
+    {
+      "platform": "trendyol",
+      "group": "Ev & Yaşam",
+      "category": "Mutfak gereçleri, sofra",
+      "min": 19.32,
+      "max": 19.32
+    },
+    {
+      "platform": "trendyol",
+      "group": "Ev & Yaşam",
+      "category": "Bahçe dekorasyonu",
+      "min": 17.5,
+      "max": 17.5
+    },
+    {
+      "platform": "trendyol",
+      "group": "Ev & Yaşam",
+      "category": "El aletleri",
+      "min": 15.5,
+      "max": 15.5
+    },
+    {
+      "platform": "trendyol",
+      "group": "Kozmetik",
+      "category": "Ağız ve cilt bakımı",
+      "min": 16.78,
+      "max": 16.78
+    },
+    {
+      "platform": "trendyol",
+      "group": "Hobi",
+      "category": "Boya ve sanat malzemeleri",
+      "min": 16.78,
+      "max": 16.78
+    },
+    {
+      "platform": "trendyol",
+      "group": "Anne & Bebek",
+      "category": "Oyuncak",
+      "min": 16.5,
+      "max": 16.5
+    },
+    {
+      "platform": "trendyol",
+      "group": "Anne & Bebek",
+      "category": "Bebek arabası, oto koltuğu",
+      "min": 16.5,
+      "max": 16.5
+    },
+    {
+      "platform": "trendyol",
+      "group": "Süpermarket",
+      "category": "Atıştırmalık, kuru gıda",
+      "min": 15.25,
+      "max": 15.25
+    },
+    {
+      "platform": "trendyol",
+      "group": "Otomotiv",
+      "category": "Oto bakım ve temizlik",
+      "min": 16.5,
+      "max": 16.5
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Moda",
+      "category": "Giyim",
+      "min": 18,
+      "max": 18
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Moda",
+      "category": "Ayakkabı",
+      "min": 19.49,
+      "max": 19.49
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Moda",
+      "category": "Çanta",
+      "min": 18,
+      "max": 18
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Moda",
+      "category": "Aksesuar (takı, saat, gözlük)",
+      "min": 18,
+      "max": 18
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Kozmetik",
+      "category": "Parfüm",
+      "min": 17,
+      "max": 17
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Kozmetik",
+      "category": "Cilt bakımı, makyaj",
+      "min": 17,
+      "max": 17
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Elektronik",
+      "category": "Cep telefonu",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Elektronik",
+      "category": "Cep telefonu aksesuarı",
+      "min": 15,
+      "max": 25
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Elektronik",
+      "category": "Bilgisayar",
+      "min": 7,
+      "max": 17
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Elektronik",
+      "category": "Tablet",
+      "min": 7,
+      "max": 7
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Elektronik",
+      "category": "Televizyon",
+      "min": 6.78,
+      "max": 6.78
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Elektronik",
+      "category": "Fotoğraf makinesi, kamera",
+      "min": 10,
+      "max": 15
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Elektronik",
+      "category": "Oyun konsolu",
+      "min": 8.5,
+      "max": 15
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Ev & Yaşam",
+      "category": "Ev tekstili",
+      "min": 18,
+      "max": 18
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Ev & Yaşam",
+      "category": "Züccaciye",
+      "min": 18,
+      "max": 18
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Ev & Yaşam",
+      "category": "Mobilya",
+      "min": 18,
+      "max": 22
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Ev & Yaşam",
+      "category": "Bahçe",
+      "min": 9,
+      "max": 20
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Ev & Yaşam",
+      "category": "Yapı market",
+      "min": 14,
+      "max": 20
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Anne & Bebek",
+      "category": "Oyuncak",
+      "min": 18,
+      "max": 18
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Anne & Bebek",
+      "category": "Anne ve bebek ürünleri",
+      "min": 11,
+      "max": 18
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Süpermarket",
+      "category": "Ev bakım ürünleri",
+      "min": 15,
+      "max": 15
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Süpermarket",
+      "category": "Temel tüketim",
+      "min": 17,
+      "max": 17
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Süpermarket",
+      "category": "Petshop",
+      "min": 14,
+      "max": 17
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Spor",
+      "category": "Spor ve outdoor",
+      "min": 8.47,
+      "max": 18
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Otomotiv",
+      "category": "Oto aksesuar",
+      "min": 6,
+      "max": 20
+    },
+    {
+      "platform": "hepsiburada",
+      "group": "Yatırım",
+      "category": "Altın",
+      "min": 6,
+      "max": 6
+    },
+    {
+      "platform": "n11",
+      "group": "Moda",
+      "category": "Moda ve giyim",
+      "min": 18,
+      "max": 20.34
+    },
+    {
+      "platform": "n11",
+      "group": "Moda",
+      "category": "Mücevher ve saat",
+      "min": 15.2,
+      "max": 21
+    },
+    {
+      "platform": "n11",
+      "group": "Elektronik",
+      "category": "Elektronik (telefon, bilgisayar)",
+      "min": 5.5,
+      "max": 8
+    },
+    {
+      "platform": "n11",
+      "group": "Elektronik",
+      "category": "Beyaz eşya",
+      "min": 12,
+      "max": 13
+    },
+    {
+      "platform": "n11",
+      "group": "Elektronik",
+      "category": "Fotoğraf ve kamera aksesuarı",
+      "min": 15,
+      "max": 15
+    },
+    {
+      "platform": "n11",
+      "group": "Ev & Yaşam",
+      "category": "Ev ve yaşam",
+      "min": 15,
+      "max": 21
+    },
+    {
+      "platform": "n11",
+      "group": "Ev & Yaşam",
+      "category": "Mutfak gereçleri",
+      "min": 18,
+      "max": 18
+    },
+    {
+      "platform": "n11",
+      "group": "Ev & Yaşam",
+      "category": "Mobilya",
+      "min": 18,
+      "max": 18
+    },
+    {
+      "platform": "n11",
+      "group": "Kozmetik",
+      "category": "Kişisel bakım ve kozmetik",
+      "min": 13,
+      "max": 17
+    },
+    {
+      "platform": "n11",
+      "group": "Kozmetik",
+      "category": "Sağlık ürünleri",
+      "min": 13,
+      "max": 16
+    },
+    {
+      "platform": "n11",
+      "group": "Anne & Bebek",
+      "category": "Anne ve bebek",
+      "min": 12,
+      "max": 21
+    },
+    {
+      "platform": "n11",
+      "group": "Spor",
+      "category": "Spor ve outdoor",
+      "min": 12,
+      "max": 21
+    },
+    {
+      "platform": "n11",
+      "group": "Hobi",
+      "category": "Kitap, film, müzik, oyun",
+      "min": 5.09,
+      "max": 21
+    },
+    {
+      "platform": "n11",
+      "group": "Hobi",
+      "category": "Kırtasiye ve ofis",
+      "min": 17,
+      "max": 17
+    },
+    {
+      "platform": "n11",
+      "group": "Otomotiv",
+      "category": "Otomotiv ve motosiklet",
+      "min": 14,
+      "max": 18
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Çiçek & Hediye",
+      "category": "Tasarım ürünler",
+      "min": 30,
+      "max": 30
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Çiçek & Hediye",
+      "category": "Butik çiçek",
+      "min": 30,
+      "max": 30
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Çiçek & Hediye",
+      "category": "Yenilebilir çiçek",
+      "min": 25,
+      "max": 25
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Moda",
+      "category": "Moda",
+      "min": 22,
+      "max": 30
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Moda",
+      "category": "Takı ve aksesuar",
+      "min": 20,
+      "max": 25
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Kozmetik",
+      "category": "Kozmetik ve kişisel bakım",
+      "min": 15,
+      "max": 27
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Kozmetik",
+      "category": "Parfüm",
+      "min": 15,
+      "max": 22
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Elektronik",
+      "category": "Elektronik",
+      "min": 10,
+      "max": 20
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Elektronik",
+      "category": "Elektrikli ev aletleri",
+      "min": 12,
+      "max": 17
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Elektronik",
+      "category": "Bilgisayar ve aksesuarları",
+      "min": 10,
+      "max": 15
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Elektronik",
+      "category": "Cep telefonu aksesuarı",
+      "min": 15,
+      "max": 20
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Ev & Yaşam",
+      "category": "Ev ve yaşam",
+      "min": 20,
+      "max": 30
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Anne & Bebek",
+      "category": "Anne ve bebek",
+      "min": 16,
+      "max": 30
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Anne & Bebek",
+      "category": "Oyuncak",
+      "min": 16,
+      "max": 20
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Spor",
+      "category": "Spor ve outdoor",
+      "min": 15,
+      "max": 20
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Hobi",
+      "category": "Hobi ve eğlence",
+      "min": 12,
+      "max": 16
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Hobi",
+      "category": "Kırtasiye",
+      "min": 15,
+      "max": 18
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Hobi",
+      "category": "Kitap ve yayın",
+      "min": 8,
+      "max": 10
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Süpermarket",
+      "category": "Süpermarket ve gıda",
+      "min": 15,
+      "max": 17
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Süpermarket",
+      "category": "Petshop",
+      "min": 15,
+      "max": 18
+    },
+    {
+      "platform": "ciceksepeti",
+      "group": "Otomotiv",
+      "category": "Oto aksesuar",
+      "min": 15,
+      "max": 27
+    }
+  ]
+}
