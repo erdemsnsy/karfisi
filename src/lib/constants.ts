@@ -34,7 +34,7 @@ export const SAMPLE: BulkRow[] = [
 ];
 
 export const FAQ: [string, string][] = [
-  ["Verilerim saklanıyor mu?", "Ücretsiz hesaplamalarda veriler sunucuya gönderilmez. Premium üyelerde ise geçmişin arşivlenmesi amacıyla veritabanımızda güvenle saklanır."],
+  ["Verilerim saklanıyor mu?", "Hesaplamalar sunucuya gönderilmez, tamamen tarayıcında yapılır. “Kaydet” ile sakladığın fişler yalnızca bu tarayıcının yerel depolamasında tutulur; tarayıcı verilerini temizlediğinde silinir."],
   ["İstediğim zaman iptal edebilir miyim?", "Evet, premium üyelik istediğin an, taahhüt olmadan iptal edilebilir."],
   ["Hangi platformları destekliyorsunuz?", "Trendyol, Hepsiburada, Amazon TR, N11 ve Çiçeksepeti için hesaplama yapabilirsin."],
   ["Net kâr nasıl hesaplanıyor?", "Satış fiyatından platform komisyonu, kargo ücreti ve ürün maliyeti düşülür. Premium’da bunlara ek olarak net KDV ve gelir vergisi (stopaj) da hesaba katılır."],

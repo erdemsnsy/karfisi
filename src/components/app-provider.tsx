@@ -114,6 +114,21 @@ const INITIAL_FORM: FormState = {
   target: "25",
 };
 
+/** localStorage'tan okunan kayıtların biçimini doğrular (bozuk veri arayüzü çökertmesin) */
+const isHistoryItem = (h: unknown): h is HistoryItem => {
+  if (!h || typeof h !== "object") return false;
+  const x = h as Record<string, unknown>;
+  return (
+    typeof x.id === "number" &&
+    typeof x.name === "string" &&
+    typeof x.platform === "string" &&
+    typeof x.pid === "string" &&
+    typeof x.net === "number" &&
+    Number.isFinite(x.net) &&
+    typeof x.date === "string"
+  );
+};
+
 const persist = (history: HistoryItem[]) => {
   try {
     localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(-50)));
@@ -159,7 +174,10 @@ export function AppProvider({ rates, children }: { rates: RatesData; children: R
     const t = setTimeout(() => setFeed(0), 350);
     try {
       const hs: unknown = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
-      if (Array.isArray(hs) && hs.length) setHistory(hs as HistoryItem[]);
+      if (Array.isArray(hs)) {
+        const valid = hs.filter(isHistoryItem);
+        if (valid.length) setHistory(valid);
+      }
     } catch {
       /* bozuk kayıt yok sayılır */
     }
