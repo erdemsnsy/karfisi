@@ -10,7 +10,7 @@ export function HeroCalculator() {
 
   /* Mobil alt çubuk yalnızca hesaplayıcı ekrandayken görünsün */
   useEffect(() => {
-    const el = document.getElementById("hesapla");
+    const el = document.getElementById("hesapla-form");
     if (!el || !window.IntersectionObserver) return;
     const io = new IntersectionObserver((es) => setCalcVis(es[0].isIntersecting), { threshold: 0 });
     io.observe(el);

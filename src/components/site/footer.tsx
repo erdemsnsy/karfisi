@@ -112,13 +112,13 @@ export function Footer() {
   return (
     <footer className="overflow-hidden bg-ink text-paper">
       <div className="mx-auto flex max-w-[1280px] flex-col items-center px-[clamp(20px,4vw,48px)] pt-[clamp(56px,7vw,88px)] pb-7 text-center">
-        <div className="mb-[clamp(32px,4vw,52px)] flex flex-wrap justify-center gap-3">
+        <div className="mb-[clamp(32px,4vw,52px)] flex flex-wrap justify-center gap-3 max-[640px]:mb-8 max-[640px]:max-w-[250px] max-[640px]:gap-2">
           {ICONS.map((i) => (
             <span
               key={i.title}
               aria-hidden="true"
               title={i.title}
-              className="grid size-12 place-items-center rounded-full border border-paper/[.16] text-paper/55 transition-[color,border-color,transform] duration-200 hover:-translate-y-[3px] hover:border-paper/50 hover:text-paper"
+              className="grid size-12 place-items-center rounded-full max-[640px]:size-10 border border-paper/[.16] text-paper/55 transition-[color,border-color,transform] duration-200 hover:-translate-y-[3px] hover:border-paper/50 hover:text-paper"
             >
               {i.node}
             </span>
