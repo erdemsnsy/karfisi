@@ -68,6 +68,11 @@ interface AppContextValue {
   receiptRef: RefObject<HTMLDivElement | null>;
   rcptVis: boolean;
   setRcptVis: (v: boolean) => void;
+  /** Hesaplayıcı bölümü ekranda mı */
+  calcVis: boolean;
+  setCalcVis: (v: boolean) => void;
+  /** Mobilde alt net kâr çubuğu görünüyor mu */
+  barVisible: boolean;
   isMobile: boolean;
   /* geçmiş */
   history: HistoryItem[];
@@ -141,6 +146,7 @@ export function AppProvider({ rates, children }: { rates: RatesData; children: R
   const [feedDur, setFeedDur] = useState(1.4);
   const [isMobile, setIsMobile] = useState(false);
   const [rcptVis, setRcptVis] = useState(true);
+  const [calcVis, setCalcVis] = useState(false);
   const [dateStr, setDateStr] = useState("");
 
   const receiptRef = useRef<HTMLDivElement | null>(null);
@@ -402,6 +408,9 @@ export function AppProvider({ rates, children }: { rates: RatesData; children: R
     receiptRef,
     rcptVis,
     setRcptVis,
+    calcVis,
+    setCalcVis,
+    barVisible: isMobile && calcVis && !rcptVis,
     isMobile,
     history,
     saveHistory,

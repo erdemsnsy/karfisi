@@ -4,8 +4,8 @@ import { pct, signed } from "@/lib/format";
 import { useApp } from "../app-provider";
 
 export function MobileBar() {
-  const { isMobile, hasPrice, rcptVis, result, receiptRef } = useApp();
-  if (!(isMobile && hasPrice && !rcptVis)) return null;
+  const { barVisible, hasPrice, result, receiptRef } = useApp();
+  if (!barVisible) return null;
 
   const goReceipt = () => {
     const el = receiptRef.current;
@@ -15,13 +15,19 @@ export function MobileBar() {
   return (
     <div className="fixed right-3 bottom-3 left-3 z-150 flex items-center justify-between gap-3 rounded-[18px] bg-ink py-2.5 pr-2.5 pl-[18px] text-paper shadow-[0_16px_40px_rgba(0,0,0,.3)]">
       <span className="flex min-w-0 flex-col gap-px">
-        <span className="font-mono text-[10px] tracking-[.12em] text-dim">NET KÂR · MARJ %{pct(result.margin)}</span>
-        <span
-          className="text-[22px] font-bold tracking-[-.03em] tabular-nums"
-          style={{ color: result.net >= 0 ? "#EEEBE2" : "oklch(0.75 0.15 28)" }}
-        >
-          {signed(result.net)}
+        <span className="font-mono text-[10px] tracking-[.12em] text-dim">
+          {hasPrice ? `NET KÂR · MARJ %${pct(result.margin)}` : "CANLI NET KÂR"}
         </span>
+        {hasPrice ? (
+          <span
+            className="text-[22px] font-bold tracking-[-.03em] tabular-nums"
+            style={{ color: result.net >= 0 ? "#EEEBE2" : "oklch(0.75 0.15 28)" }}
+          >
+            {signed(result.net)}
+          </span>
+        ) : (
+          <span className="text-[17px] font-semibold tracking-[-.02em] text-dim-2">Fiyatı gir, fişin basılsın</span>
+        )}
       </span>
       <button
         onClick={goReceipt}

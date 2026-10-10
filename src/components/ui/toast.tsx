@@ -3,9 +3,9 @@
 import { useApp } from "../app-provider";
 
 export function Toast() {
-  const { toast, isMobile, hasPrice, rcptVis } = useApp();
+  const { toast, barVisible } = useApp();
   if (!toast) return null;
-  const raised = isMobile && hasPrice && !rcptVis;
+  const raised = barVisible;
   return (
     <div
       role="status"

@@ -30,7 +30,7 @@ export function Receipt() {
   useEffect(() => {
     const el = receiptRef.current;
     if (!el || !window.IntersectionObserver) return;
-    const io = new IntersectionObserver((es) => setRcptVis(es[0].isIntersecting), { threshold: 0.25 });
+    const io = new IntersectionObserver((es) => setRcptVis(es[0].isIntersecting), { threshold: 0.6 });
     io.observe(el);
     return () => io.disconnect();
   }, [receiptRef, setRcptVis]);

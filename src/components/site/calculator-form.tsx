@@ -55,7 +55,7 @@ export function CalculatorForm() {
   const err = "oklch(0.55 0.17 28)";
 
   return (
-    <div className="flex flex-col gap-7 rounded-[22px] border border-ink/[.13] bg-card p-[clamp(22px,3vw,36px)]">
+    <div className="flex flex-col gap-7 rounded-[22px] border border-ink/[.13] bg-card p-[clamp(22px,3vw,36px)] max-[980px]:gap-5">
       <div className="flex items-center justify-between font-mono text-[11.5px] tracking-[.12em] uppercase">
         <span className="flex items-center gap-2">
           <span className="size-[7px] rounded-full bg-accent shadow-[0_0_0_4px_oklch(0.46_0.17_264/.18)]" />
@@ -119,7 +119,7 @@ export function CalculatorForm() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-x-5 gap-y-6">
+      <div className="grid grid-cols-2 gap-x-5 gap-y-6 max-[980px]:gap-y-4">
         {FIELDS.map((f) => (
           <label key={f.key} className="flex min-w-0 flex-col gap-[5px]">
             <span className="label-mono">{f.label}</span>
@@ -132,7 +132,7 @@ export function CalculatorForm() {
                 onChange={(e) => setField(f.key, e.target.value)}
                 inputMode="decimal"
                 placeholder={f.ph}
-                className="w-full min-w-0 border-0 bg-transparent pt-1 text-[30px] font-semibold tracking-[-.02em] tabular-nums"
+                className="w-full min-w-0 border-0 bg-transparent pt-1 text-[30px] font-semibold tracking-[-.02em] tabular-nums max-[980px]:text-[26px]"
               />
               <span className="font-mono text-base text-muted-2">{f.unit}</span>
             </span>

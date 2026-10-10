@@ -1,11 +1,24 @@
 "use client";
 
+import { useEffect } from "react";
 import { useApp } from "../app-provider";
 import { CalculatorForm } from "./calculator-form";
 import { Receipt } from "./receipt";
 
 export function HeroCalculator() {
-  const { scrollToId } = useApp();
+  const { scrollToId, setCalcVis } = useApp();
+
+  /* Mobil alt çubuk yalnızca hesaplayıcı ekrandayken görünsün */
+  useEffect(() => {
+    const el = document.getElementById("hesapla");
+    if (!el || !window.IntersectionObserver) return;
+    const io = new IntersectionObserver((es) => setCalcVis(es[0].isIntersecting), { threshold: 0 });
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      setCalcVis(false);
+    };
+  }, [setCalcVis]);
 
   const startNow = (e: React.MouseEvent) => {
     e.preventDefault();
