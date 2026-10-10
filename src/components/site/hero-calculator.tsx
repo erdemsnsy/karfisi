@@ -52,10 +52,10 @@ export function HeroCalculator() {
           <a
             href="#hesapla"
             onClick={startNow}
-            className="flex flex-none items-center gap-3.5 rounded-full bg-ink py-2 pr-2 pl-6 text-base font-medium whitespace-nowrap text-paper no-underline hover:bg-accent hover:text-card"
+            className="flex flex-none items-center gap-3.5 rounded-full bg-ink py-2 pr-2 pl-6 text-base font-medium whitespace-nowrap text-paper no-underline hover:bg-accent hover:text-card max-[640px]:py-1.5 max-[640px]:pr-1.5 max-[640px]:pl-5 max-[640px]:text-[15px]"
           >
             Hemen Ücretsiz Dene
-            <span className="grid size-[38px] place-items-center rounded-full bg-paper text-base text-ink">↓</span>
+            <span className="grid size-[38px] place-items-center rounded-full bg-paper text-base text-ink max-[640px]:size-8 max-[640px]:text-sm">↓</span>
           </a>
         </div>
       </div>

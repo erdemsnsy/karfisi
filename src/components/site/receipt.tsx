@@ -83,7 +83,7 @@ export function Receipt() {
         <div className="relative z-2 h-2.5 rounded-full bg-ink shadow-[inset_0_-2px_0_rgba(255,255,255,.12)]" />
         <div className="-mt-[5px] mr-2.5 ml-2.5 overflow-hidden">
           <div
-            className="receipt-edge relative bg-receipt px-6 pt-[34px] pb-11 font-mono text-[13px] leading-normal text-ink"
+            className="receipt-edge relative bg-receipt px-6 pt-[34px] pb-11 font-mono text-[13px] leading-normal text-ink max-[640px]:pt-6 max-[640px]:pb-8 max-[640px]:text-[12.5px]"
             style={{
               transform: FEED_T[feed],
               transition: feed ? "none" : `transform ${feedDur}s cubic-bezier(.2,.8,.2,1)`,
@@ -95,7 +95,7 @@ export function Receipt() {
                 №{String(no).padStart(6, "0")} · {dateStr}
               </span>
             </div>
-            <div className="mt-[18px] mb-3 border-t border-dashed border-ink" />
+            <div className="mt-[18px] mb-3 border-t border-dashed border-ink max-[640px]:mt-3 max-[640px]:mb-2" />
             <div className="flex flex-col gap-[3px]">
               <div className="flex justify-between gap-3">
                 <span className="text-muted">ÜRÜN</span>
@@ -110,7 +110,7 @@ export function Receipt() {
 
             {hasPrice ? (
               <>
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-1.5 max-[640px]:gap-1">
                   {lines.map(([label, value, w]) => (
                     <div key={label} className="flex justify-between gap-3 tabular-nums">
                       <span>{label}</span>
@@ -118,20 +118,20 @@ export function Receipt() {
                     </div>
                   ))}
                 </div>
-                <div className="my-3.5 border-t-[3px] border-double border-ink" />
+                <div className="my-3.5 border-t-[3px] border-double border-ink max-[640px]:my-2.5" />
                 <div className="flex items-baseline justify-between">
                   <span className="font-semibold tracking-[.12em]">NET KÂR</span>
                   <span className="text-[11.5px] text-muted">Kâr marjı: %{pct(r.margin)}</span>
                 </div>
                 <div
-                  className="mt-1.5 font-sans text-[clamp(40px,5vw,54px)] leading-[1.05] font-bold tracking-[-.035em] tabular-nums"
+                  className="mt-1.5 font-sans text-[clamp(40px,5vw,54px)] leading-[1.05] max-[640px]:text-[38px] font-bold tracking-[-.035em] tabular-nums"
                   style={{ color: r.net >= 0 ? "#14140F" : "oklch(0.55 0.17 28)" }}
                 >
                   {signed(r.net)}
                 </div>
               </>
             ) : (
-              <div className="flex flex-col items-center gap-3.5 px-1 pt-[34px] pb-[26px] text-center">
+              <div className="flex flex-col items-center gap-3.5 px-1 pt-[34px] pb-[26px] text-center max-[640px]:pt-4 max-[640px]:pb-2">
                 <div className="flex w-full flex-col gap-[7px]">
                   {["100%", "82%", "92%", "70%"].map((w) => (
                     <span key={w} className="h-2 rounded-[2px] bg-ink/[.07]" style={{ width: w }} />
@@ -148,7 +148,7 @@ export function Receipt() {
               </div>
             )}
 
-            <div className="barcode mt-[26px] h-[46px]" />
+            <div className="barcode mt-[26px] h-[46px] max-[640px]:mt-4 max-[640px]:h-8" />
             <div className="mt-2.5 text-center text-[11px] tracking-[.14em] text-muted">YAPTIĞIN HER SATIŞIN GERÇEĞİ</div>
             {r.net > 0 && hasPrice && (
               <div className="absolute right-[18px] bottom-24 -rotate-10 rounded-[10px] border-2 border-ink bg-receipt/80 px-2.5 py-1.5 text-center text-[10.5px] leading-[1.3] font-semibold tracking-[.12em] text-ink">

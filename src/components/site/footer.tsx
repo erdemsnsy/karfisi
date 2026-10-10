@@ -125,7 +125,7 @@ export function Footer() {
           ))}
         </div>
         <div className="text-[clamp(56px,11vw,150px)] leading-[.85] font-extrabold tracking-[-.055em]">Kâr Fişi</div>
-        <div className="mt-10 flex w-full flex-wrap justify-center gap-x-7 gap-y-2.5 font-mono text-[12.5px] tracking-[.04em]">
+        <div className="mt-10 flex w-full flex-wrap justify-center gap-x-7 gap-y-2.5 max-[640px]:mt-8 max-[640px]:gap-x-5 font-mono text-[12.5px] tracking-[.04em]">
           {LINKS.map(([href, label]) => (
             <a key={href} href={href} className={link}>
               {label}
@@ -135,7 +135,7 @@ export function Footer() {
             Komisyon Rehberi
           </a>
         </div>
-        <div className="mt-6 grid w-full grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] items-center gap-x-6 gap-y-3 border-t border-paper/[.18] pt-5 font-mono text-xs text-dim">
+        <div className="mt-6 grid w-full grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] items-center gap-x-6 gap-y-3 border-t border-paper/[.18] pt-5 font-mono text-xs text-dim max-[640px]:grid-cols-1 max-[640px]:justify-items-center max-[640px]:gap-y-4 max-[640px]:text-center">
           <span suppressHydrationWarning>© {new Date().getFullYear()} Kâr Fişi · Tüm hakları saklıdır.</span>
           <div className="flex flex-wrap justify-center gap-5">
             <a onClick={() => openLegal("kvkk")} className={link}>
@@ -150,7 +150,7 @@ export function Footer() {
           </div>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="justify-self-end rounded-full border border-paper/25 bg-transparent px-3.5 py-[7px] font-mono text-xs whitespace-nowrap text-dim-2 hover:border-paper hover:text-paper"
+            className="justify-self-end max-[640px]:justify-self-center rounded-full border border-paper/25 bg-transparent px-3.5 py-[7px] font-mono text-xs whitespace-nowrap text-dim-2 hover:border-paper hover:text-paper"
           >
             Yukarı çık ↑
           </button>
