@@ -42,20 +42,20 @@ export function HeroCalculator() {
           Komisyon, kargo, KDV ve stopajı elle hesaplama devri bitti. Fiyatı gir, gerçek net kârını fiş gibi önünde
           gör — temel araçlar her zaman ücretsiz; toplu analiz ve gelişmiş vergi hesabı Premium’da.
         </p>
-        <div className="flex flex-wrap items-center gap-[22px] max-[640px]:w-full max-[640px]:flex-col-reverse max-[640px]:items-stretch max-[640px]:gap-5">
+        <div className="flex flex-wrap items-center gap-[22px]">
           <a
             href="#nasil"
-            className="flex items-center gap-2 border-b-[1.5px] border-ink py-1.5 text-base font-medium no-underline hover:border-accent hover:text-accent max-[640px]:self-center"
+            className="flex items-center gap-2 border-b-[1.5px] border-ink py-1.5 text-base font-medium no-underline hover:border-accent hover:text-accent"
           >
             Nasıl çalışır?
           </a>
           <a
             href="#hesapla"
             onClick={startNow}
-            className="flex flex-none items-center gap-3.5 rounded-full bg-ink py-2 pr-2 pl-6 text-base font-medium whitespace-nowrap text-paper no-underline hover:bg-accent hover:text-card max-[640px]:justify-between max-[640px]:py-2.5 max-[640px]:pr-2.5 max-[640px]:pl-7 max-[640px]:text-[18px] max-[640px]:shadow-[0_14px_30px_rgba(20,20,15,.22)]"
+            className="flex flex-none items-center gap-3.5 rounded-full bg-ink py-2 pr-2 pl-6 text-base font-medium whitespace-nowrap text-paper no-underline hover:bg-accent hover:text-card"
           >
             Hemen Ücretsiz Dene
-            <span className="grid size-[38px] place-items-center rounded-full bg-paper text-base text-ink max-[640px]:size-[46px] max-[640px]:text-lg">↓</span>
+            <span className="grid size-[38px] place-items-center rounded-full bg-paper text-base text-ink">↓</span>
           </a>
         </div>
       </div>
