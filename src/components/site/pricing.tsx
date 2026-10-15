@@ -4,19 +4,19 @@ import { useApp } from "../app-provider";
 import { SectionHead } from "../ui/section-head";
 
 const FREE = [
-  "Tekli ürün net kâr hesaplama",
-  "Komisyon oranları rehberi (5 pazaryeri)",
-  "Rapor detaylarını kopyalama (WhatsApp uyumlu)",
-  "Sınırsız kullanım, kayıt gerekmez",
+  "Tek ürün net kâr hesabı",
+  "Komisyon oranları rehberi, 5 pazaryeri",
+  "Sonucu WhatsApp'a kopyalama",
+  "Sınırsız kullanım, kayıt yok",
 ];
 
 const PREMIUM = [
-  "Toplu ürün hesaplama (Excel/CSV yükleme)",
-  "Gelişmiş vergi analizleri (KDV ve Stopaj hesabı)",
-  "Akıllı hedef fiyat önerici (İstenen kâr marjına göre)",
-  "Hesaplama fişlerini yüksek çözünürlüklü PNG indirme",
-  "Hesaplama geçmişi arşivi ve PDF/Excel raporları",
-  "Kâr grafik paneli (Zaman trendli Dashboard)",
+  "Toplu hesaplama (CSV yükleme)",
+  "KDV ve stopaj hesabı",
+  "İstediğin marja göre hedef fiyat",
+  "Fişi PNG olarak indirme",
+  "Geçmiş arşivi, PDF ve Excel raporu",
+  "Zamana göre kâr grafiği",
 ];
 
 export function Pricing() {
@@ -27,8 +27,8 @@ export function Pricing() {
       <div className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)]">
         <SectionHead
           eyebrow="Fiyatlandırma"
-          title="Denemek ücretsiz. Ölçeklenmek premium."
-          lead="Kredi kartı istemeden başla, ihtiyacın büyüdükçe yükselt."
+          title="Tek ürün ücretsiz, çok ürün Premium."
+          lead="Kayıt ya da kart gerekmez. Çok ürünün varsa Premium'a geç."
           balance
         />
         <div className="mx-auto mt-10 grid max-w-[980px] grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] items-stretch gap-5">
@@ -63,7 +63,7 @@ export function Pricing() {
                 href="#hesapla"
                 className="mt-auto rounded-full border-[1.5px] border-ink p-3.5 max-[640px]:p-2.5 text-center text-[15px] font-medium no-underline hover:bg-ink hover:text-paper"
               >
-                Hemen Kullan
+                Hesaplayıcıya git
               </a>
             </div>
           </div>
@@ -78,9 +78,7 @@ export function Pricing() {
               <div className="-mt-2 border-t border-dashed border-card/60" />
               <div className="flex items-center justify-between gap-3">
                 <span className="text-xl font-semibold tracking-[-.02em]">Premium</span>
-                <span className="rounded-full bg-card px-[9px] py-[5px] font-mono text-[10.5px] tracking-[.12em] text-accent">
-                  POPÜLER
-                </span>
+                <span className="font-mono text-xs text-card/80">Satıcılar için</span>
               </div>
               <div className="flex items-baseline gap-3">
                 <span className="text-[clamp(52px,5.4vw,72px)] leading-[.9] max-[640px]:text-[40px] font-bold tracking-[-.05em]">₺249</span>

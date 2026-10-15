@@ -7,9 +7,9 @@ import { pct, signed, tl } from "@/lib/format";
 import { useApp } from "../app-provider";
 
 const STEPS = [
-  "Excel'de listeni hazırla: ürün, fiyat, maliyet, komisyon (%), kargo",
-  "“CSV olarak kaydet” ve buraya yükle",
-  "Kâr raporunu Excel veya PDF olarak indir",
+  "Sütunlar: ürün, fiyat, maliyet, komisyon (%), kargo",
+  "Dosyayı CSV olarak kaydedip yükle",
+  "Raporu Excel veya PDF olarak indir",
 ];
 
 const COLS = "grid-cols-[minmax(0,1fr)_84px_52px_96px] max-[640px]:grid-cols-[minmax(0,1fr)_58px_34px_70px] max-[640px]:gap-2";
@@ -63,11 +63,11 @@ export function Bulk() {
               Premium Araç · Toplu Hesaplama
             </div>
             <h2 className="mt-5 mb-0 text-[clamp(42px,5vw,72px)] leading-[.95] max-[640px]:mt-3 max-[640px]:text-[30px] font-bold tracking-[-.04em]">
-              Yüzlerce ürünü tek seferde hesapla.
+              Ürün listeni yükle, kârı tabloda gör.
             </h2>
             <p className="mt-[26px] mb-0 max-w-[540px] max-[640px]:mt-3 max-[640px]:text-[14.5px] max-[640px]:leading-[1.5] text-[clamp(17px,1.5vw,20px)] leading-[1.55] text-dim-2 text-pretty">
-              Onlarca ürün satıyorsan hepsini hesaplayıcıya tek tek girmen gerekmez. Ürün listeni CSV olarak yükle; her
-              ürünün net kârını ve toplamını tek tabloda gör, sonucu Excel olarak indir.
+              Ürünleri tek tek girmek yerine CSV yükle. Her ürünün net kârı ve toplam kâr tek tabloda çıkar, Excel
+              olarak indirebilirsin.
             </p>
           </div>
           <div className="flex flex-col border-t border-paper/[.18]">

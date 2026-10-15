@@ -4,20 +4,20 @@ const STEPS = [
   {
     no: "01",
     tag: "GİR",
-    title: "Satış fiyatını ve maliyetini yaz",
-    text: "Ürün fiyatı, alış maliyeti ve platform komisyon oranını gir. Kargo ücretini biliyorsan ekle.",
+    title: "Fiyat ve maliyet",
+    text: "Satış fiyatı, alış maliyeti ve komisyon oranı yeter. Kargo biliyorsan onu da ekle.",
   },
   {
     no: "02",
     tag: "HESAPLA",
-    title: "Fiş anında oluşur",
-    text: "Komisyon, kargo ve maliyet tek tek düşülür; net kârın ve kâr marjın anında ekranda.",
+    title: "Kalem kalem düşüş",
+    text: "Komisyon, kargo ve maliyet satır satır çıkar. En altta net kâr ve marj yazar.",
   },
   {
     no: "03",
     tag: "KAYDET",
-    title: "Fişini sakla ve paylaş",
-    text: "Fişi geçmişe kaydet, WhatsApp'a kopyala ya da Premium'da PNG olarak indir.",
+    title: "Kaydet veya gönder",
+    text: "Geçmişe kaydet, WhatsApp'a kopyala. PNG indirme Premium'da.",
   },
 ];
 
@@ -26,8 +26,8 @@ export function HowItWorks() {
     <section id="nasil" className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)]">
       <SectionHead
         eyebrow="Nasıl çalışır"
-        title="Excel'e değil, fişe güven."
-        lead={'Üç adımda gerçek kârını gör — platform panelinin gösterdiği "brüt satış" değil, cebine giren gerçek para.'}
+        title="Panelde satış, fişte kâr."
+        lead="Platform paneli brüt satışı gösterir. Fiş, kesintilerden sonra cebine kalanı gösterir."
       />
       <div className="mt-10 max-[640px]:mt-6 max-[640px]:grid-cols-1 grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] border-t-[1.5px] border-ink">
         {STEPS.map((s, i) => (

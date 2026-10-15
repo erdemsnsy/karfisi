@@ -39,8 +39,8 @@ export function HeroCalculator() {
       </h1>
       <div className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-6 max-[640px]:mt-7 max-[640px]:gap-y-8">
         <p className="m-0 max-w-[560px] text-[clamp(17px,1.4vw,20px)] leading-normal text-ink-2 text-pretty max-[640px]:text-[18px] max-[640px]:leading-[1.55]">
-          Komisyon, kargo, KDV ve stopajı elle hesaplama devri bitti. Fiyatı gir, gerçek net kârını fiş gibi önünde
-          gör — temel araçlar her zaman ücretsiz; toplu analiz ve gelişmiş vergi hesabı Premium’da.
+          Satış fiyatını ve maliyetini yaz. Komisyon, kargo ve KDV düşülmüş net kârını fiş olarak gör. Tekli hesaplama
+          ücretsiz.
         </p>
         <div className="flex flex-wrap items-center gap-[22px]">
           <a
@@ -54,7 +54,7 @@ export function HeroCalculator() {
             onClick={startNow}
             className="flex flex-none items-center gap-3.5 rounded-full bg-ink py-2 pr-2 pl-6 text-base font-medium whitespace-nowrap text-paper no-underline hover:bg-accent hover:text-card max-[640px]:py-1.5 max-[640px]:pr-1.5 max-[640px]:pl-5 max-[640px]:text-[15px]"
           >
-            Hemen Ücretsiz Dene
+            Hesaplamaya başla
             <span className="grid size-[38px] place-items-center rounded-full bg-paper text-base text-ink max-[640px]:size-8 max-[640px]:text-sm">↓</span>
           </a>
         </div>
