@@ -23,7 +23,7 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section id="nasil" className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)]">
+    <section id="nasil" className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] py-[clamp(40px,5vw,68px)]">
       <SectionHead
         eyebrow="Nasıl çalışır"
         title="Panelde satış, fişte kâr."

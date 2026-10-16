@@ -56,16 +56,16 @@ export function Bulk() {
 
   return (
     <section id="toplu" className="overflow-hidden bg-ink text-paper">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] items-stretch gap-x-[clamp(40px,6vw,96px)] gap-y-12 px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)] max-[640px]:gap-y-7 max-[640px]:py-10">
-        <div className="relative flex flex-col justify-between gap-9 py-2 max-[640px]:gap-5 max-[640px]:py-0">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] items-stretch gap-x-[clamp(40px,6vw,96px)] gap-y-12 px-[clamp(20px,4vw,48px)] py-[clamp(40px,5vw,68px)] max-[640px]:gap-y-7 max-[640px]:py-10">
+        <div className="relative flex flex-col justify-between gap-6 py-2 max-[640px]:gap-5 max-[640px]:py-0">
           <div>
             <div className="font-mono text-xs tracking-[.12em] text-accent-light uppercase">
               Premium Araç · Toplu Hesaplama
             </div>
-            <h2 className="mt-5 mb-0 text-[clamp(42px,5vw,72px)] leading-[.95] max-[640px]:mt-3 max-[640px]:text-[30px] font-bold tracking-[-.04em]">
+            <h2 className="mt-4 mb-0 text-[clamp(38px,4.4vw,64px)] leading-[.95] max-[640px]:mt-3 max-[640px]:text-[30px] font-bold tracking-[-.04em]">
               Ürün listeni yükle, kârı tabloda gör.
             </h2>
-            <p className="mt-[26px] mb-0 max-w-[540px] max-[640px]:mt-3 max-[640px]:text-[14.5px] max-[640px]:leading-[1.5] text-[clamp(17px,1.5vw,20px)] leading-[1.55] text-dim-2 text-pretty">
+            <p className="mt-4 mb-0 max-w-[540px] max-[640px]:mt-3 max-[640px]:text-[14.5px] max-[640px]:leading-[1.5] text-[clamp(17px,1.5vw,20px)] leading-[1.55] text-dim-2 text-pretty">
               Ürünleri tek tek girmek yerine CSV yükle. Her ürünün net kârı ve toplam kâr tek tabloda çıkar, Excel
               olarak indirebilirsin.
             </p>
@@ -74,7 +74,7 @@ export function Bulk() {
             {STEPS.map((t, i) => (
               <div
                 key={t}
-                className="grid grid-cols-[44px_minmax(0,1fr)] max-[640px]:grid-cols-[28px_minmax(0,1fr)] items-baseline gap-3 border-b border-paper/[.12] py-5 max-[640px]:py-2"
+                className="grid grid-cols-[44px_minmax(0,1fr)] max-[640px]:grid-cols-[28px_minmax(0,1fr)] items-baseline gap-3 border-b border-paper/[.12] py-3 max-[640px]:py-2"
               >
                 <span className="font-mono text-[13px] text-dim">{String(i + 1).padStart(2, "0")}</span>
                 <span className="text-[clamp(17px,1.4vw,19px)] leading-[1.4] max-[640px]:text-[14px]">{t}</span>

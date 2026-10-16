@@ -4,10 +4,9 @@ import { useApp } from "../app-provider";
 import { SectionHead } from "../ui/section-head";
 
 const FREE = [
-  "Tek ürün net kâr hesabı",
+  "Tek ürün net kâr hesabı, sınırsız ve kayıtsız",
   "Komisyon oranları rehberi, 5 pazaryeri",
   "Sonucu WhatsApp'a kopyalama",
-  "Sınırsız kullanım, kayıt yok",
 ];
 
 const PREMIUM = [
@@ -15,8 +14,7 @@ const PREMIUM = [
   "KDV ve stopaj hesabı",
   "İstediğin marja göre hedef fiyat",
   "Fişi PNG olarak indirme",
-  "Geçmiş arşivi, PDF ve Excel raporu",
-  "Zamana göre kâr grafiği",
+  "Geçmiş arşivi, PDF/Excel raporu ve kâr grafiği",
 ];
 
 export function Pricing() {
@@ -24,17 +22,17 @@ export function Pricing() {
 
   return (
     <section id="fiyat" className="border-t border-ink/10 bg-card">
-      <div className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)]">
+      <div className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] py-[clamp(40px,5vw,68px)]">
         <SectionHead
           eyebrow="Fiyatlandırma"
           title="Tek ürün ücretsiz, çok ürün Premium."
           lead="Kayıt ya da kart gerekmez. Çok ürünün varsa Premium'a geç."
           balance
         />
-        <div className="mx-auto mt-10 grid max-w-[980px] grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] items-stretch gap-5">
+        <div className="mx-auto mt-8 grid max-w-[980px] grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] items-stretch gap-5">
           {/* Ücretsiz */}
           <div className="flex drop-shadow-[0_14px_24px_rgba(20,20,15,.12)] drop-shadow-[0_1px_2px_rgba(20,20,15,.1)]">
-            <div className="ticket-edge flex flex-1 flex-col gap-[22px] bg-receipt px-[clamp(24px,3vw,36px)] py-[clamp(34px,3.4vw,44px)] max-[640px]:gap-3 max-[640px]:px-5 max-[640px]:py-7">
+            <div className="ticket-edge flex flex-1 flex-col gap-[16px] bg-receipt px-[clamp(24px,3vw,36px)] py-[clamp(34px,3.4vw,44px)] max-[640px]:gap-3 max-[640px]:px-5 max-[640px]:py-7">
               <div className="flex justify-between font-mono text-[11px] tracking-[.12em] text-muted">
                 <span>PLAN №01</span>
                 <span>KÂR FİŞİ</span>
@@ -52,7 +50,7 @@ export function Pricing() {
                 {FREE.map((t) => (
                   <div
                     key={t}
-                    className="flex gap-3.5 border-t border-dashed border-ink/[.22] py-[11px] text-[15px] leading-[1.4] max-[640px]:gap-3 max-[640px]:py-2 max-[640px]:text-[13.5px]"
+                    className="flex gap-3.5 border-t border-dashed border-ink/[.22] py-[8px] text-[15px] leading-[1.4] max-[640px]:gap-3 max-[640px]:py-2 max-[640px]:text-[13.5px]"
                   >
                     <span className="font-mono opacity-70">✓</span>
                     {t}
@@ -70,7 +68,7 @@ export function Pricing() {
 
           {/* Premium */}
           <div className="flex drop-shadow-[0_14px_24px_rgba(20,20,15,.18)] drop-shadow-[0_1px_2px_rgba(20,20,15,.1)]">
-            <div className="ticket-edge flex flex-1 flex-col gap-[22px] bg-accent px-[clamp(24px,3vw,36px)] py-[clamp(34px,3.4vw,44px)] max-[640px]:gap-3 max-[640px]:px-5 max-[640px]:py-7 text-card">
+            <div className="ticket-edge flex flex-1 flex-col gap-[16px] bg-accent px-[clamp(24px,3vw,36px)] py-[clamp(34px,3.4vw,44px)] max-[640px]:gap-3 max-[640px]:px-5 max-[640px]:py-7 text-card">
               <div className="flex justify-between font-mono text-[11px] tracking-[.12em] text-card/75">
                 <span>PLAN №02</span>
                 <span>KÂR FİŞİ</span>
@@ -88,7 +86,7 @@ export function Pricing() {
                 {PREMIUM.map((t) => (
                   <div
                     key={t}
-                    className="flex gap-3.5 border-t border-dashed border-card/30 py-[11px] text-[15px] leading-[1.4] max-[640px]:gap-3 max-[640px]:py-2 max-[640px]:text-[13.5px]"
+                    className="flex gap-3.5 border-t border-dashed border-card/30 py-[8px] text-[15px] leading-[1.4] max-[640px]:gap-3 max-[640px]:py-2 max-[640px]:text-[13.5px]"
                   >
                     <span className="font-mono opacity-70">✓</span>
                     {t}
