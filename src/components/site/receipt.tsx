@@ -45,8 +45,8 @@ export function Receipt() {
     ["Komisyon kesintisi", "−" + tl(v.commAmt), 400],
     ["Kargo gideri", "−" + tl(v.S), 400],
     ["Ürün maliyeti", "−" + tl(v.C), 400],
-    ["KDV kesintisi (net)", premium && !sample ? "−" + tl(v.kdvAmt) : "PRO ·  —", 400],
-    ["Gelir vergisi", premium && !sample ? "−" + tl(v.tax) : "PRO ·  —", 400],
+    ["KDV kesintisi (net)", premium && !sample ? "−" + tl(v.kdvAmt) : "—", 400],
+    ["Gelir vergisi", premium && !sample ? "−" + tl(v.tax) : "—", 400],
   ];
 
   const copyDetails = () => {
@@ -164,11 +164,6 @@ export function Receipt() {
         <span className="size-[3px] rounded-full bg-ink/30" />
         <button onClick={download} className={`${action} opacity-[.72]`}>
           <span className="text-sm">↓</span>İndir
-          {locked && (
-            <span className="rounded-[3px] bg-accent px-[5px] py-0.5 text-[9.5px] tracking-[.1em] text-card no-underline">
-              PRO
-            </span>
-          )}
         </button>
       </div>
     </div>
