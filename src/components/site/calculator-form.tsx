@@ -56,7 +56,7 @@ export function CalculatorForm() {
   const err = "oklch(0.55 0.17 28)";
 
   return (
-    <div id="hesapla-form" className="flex flex-col gap-5 self-start rounded-[22px] border border-ink/[.13] bg-card p-[clamp(20px,2.4vw,30px)] max-[980px]:gap-5">
+    <div id="hesapla-form" className="flex flex-col justify-between gap-5 rounded-[22px] border border-ink/[.13] bg-card p-[clamp(20px,2.4vw,30px)] max-[980px]:gap-5">
       <label className="flex flex-col gap-2">
         <span className="label-mono">Ürün Adı</span>
         <input

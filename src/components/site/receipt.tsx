@@ -79,10 +79,10 @@ export function Receipt() {
     "flex items-center gap-2 border-0 bg-transparent px-1 py-2 font-mono text-[12.5px] tracking-[.1em] uppercase underline decoration-transparent underline-offset-[5px] transition-[opacity,text-decoration-color] duration-150 hover:opacity-100 hover:decoration-ink";
 
   return (
-    <div className="sticky top-[88px] flex flex-col items-center gap-5 self-start px-[clamp(0px,2vw,24px)] py-2 text-ink">
+    <div className="flex flex-col items-center justify-center gap-4 px-[clamp(0px,1vw,12px)] py-0 text-ink">
       <div
         ref={receiptRef}
-        className="w-full max-w-[430px] drop-shadow-[0_18px_30px_rgba(20,20,15,.14)] drop-shadow-[0_2px_4px_rgba(20,20,15,.08)]"
+        className="w-full max-w-[480px] drop-shadow-[0_18px_30px_rgba(20,20,15,.14)] drop-shadow-[0_2px_4px_rgba(20,20,15,.08)]"
       >
         {/* yazıcı ağzı */}
         <div className="relative z-2 h-2.5 rounded-full bg-ink shadow-[inset_0_-2px_0_rgba(255,255,255,.12)]" />
