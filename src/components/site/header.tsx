@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { useApp } from "../app-provider";
 
 const NAV = [
-  ["#nasil", "Nasıl çalışır"],
   ["#toplu", "Toplu Hesaplama"],
-  ["#sss", "SSS"],
   ["#fiyat", "Fiyatlandırma"],
+  ["#nasil", "Nasıl çalışır"],
+  ["#sss", "SSS"],
 ] as const;
 
 export function Header() {

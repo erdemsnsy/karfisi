@@ -16,10 +16,10 @@ export function SiteView() {
       <main>
         <HeroCalculator />
         <PlatformStrip />
-        <HowItWorks />
         <Bulk />
-        <Faq />
         <Pricing />
+        <HowItWorks />
+        <Faq />
       </main>
       <Footer />
     </>
