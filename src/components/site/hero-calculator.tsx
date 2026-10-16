@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { useApp } from "../app-provider";
 import { CalculatorForm } from "./calculator-form";
-import { HeroDecor } from "./hero-decor";
 import { Receipt } from "./receipt";
 
 export function HeroCalculator() {
@@ -31,11 +30,9 @@ export function HeroCalculator() {
   };
 
   return (
-    <div className="relative">
-    <HeroDecor />
     <section
       id="top"
-      className="relative mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] pt-[clamp(48px,7vw,96px)]"
+      className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] pt-[clamp(48px,7vw,96px)]"
     >
       <h1 className="m-0 max-w-[1100px] text-[clamp(42px,6.4vw,96px)] leading-[.94] font-bold tracking-[-.04em] text-balance max-[640px]:text-[clamp(50px,14.6vw,68px)] max-[640px]:leading-[.92] max-[640px]:tracking-[-.045em]">
         Her satıştan ne kadar <span className="text-accent">kâr kaldığını</span> saniyede gör.
@@ -71,6 +68,5 @@ export function HeroCalculator() {
         <Receipt />
       </div>
     </section>
-    </div>
   );
 }
