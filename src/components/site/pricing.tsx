@@ -25,8 +25,8 @@ export function Pricing() {
       <div className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] py-[clamp(40px,5vw,68px)]">
         <SectionHead
           eyebrow="Fiyatlandırma"
-          title="Tek ürün ücretsiz, çok ürün Premium."
-          lead="Kayıt ya da kart gerekmez. Çok ürünün varsa Premium'a geç."
+          title="Ücretsiz başla, gerekirse Premium."
+          lead="Tek ürün hesabı için kayıt ya da kart gerekmez."
           balance
         />
         <div className="mx-auto mt-8 grid max-w-[980px] grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] items-stretch gap-5">

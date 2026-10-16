@@ -141,14 +141,6 @@ export function Receipt() {
             )}
 
             <div className="barcode mt-[26px] h-[46px] max-[640px]:mt-4 max-[640px]:h-8" />
-            <div className="mt-2.5 text-center text-[11px] tracking-[.14em] text-muted">YAPTIĞIN HER SATIŞIN GERÇEĞİ</div>
-            {r.net > 0 && hasPrice && (
-              <div className="absolute right-[18px] bottom-24 -rotate-10 rounded-[10px] border-2 border-ink bg-receipt/80 px-2.5 py-1.5 text-center text-[10.5px] leading-[1.3] font-semibold tracking-[.12em] text-ink">
-                ✓ NET KÂR
-                <br />
-                DOĞRULANDI
-              </div>
-            )}
           </div>
         </div>
       </div>
