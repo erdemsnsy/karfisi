@@ -21,7 +21,7 @@ export function MobileBar() {
         {hasPrice ? (
           <span
             className="text-[22px] font-bold tracking-[-.03em] tabular-nums"
-            style={{ color: result.net >= 0 ? "#EEEBE2" : "oklch(0.75 0.15 28)" }}
+            style={{ color: result.net >= 0 ? "#EBE5D5" : "oklch(0.75 0.15 28)" }}
           >
             {signed(result.net)}
           </span>

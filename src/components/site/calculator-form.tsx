@@ -55,10 +55,10 @@ export function CalculatorForm() {
   const err = "oklch(0.55 0.17 28)";
 
   return (
-    <div id="hesapla-form" className="flex flex-col gap-7 rounded-[22px] border border-ink/[.13] bg-card p-[clamp(22px,3vw,36px)] max-[980px]:gap-5">
+    <div id="hesapla-form" className="flex flex-col justify-between gap-7 rounded-[22px] border border-ink/[.13] bg-card p-[clamp(22px,3vw,36px)] max-[980px]:gap-5">
       <div className="flex items-center justify-between font-mono text-[11.5px] tracking-[.12em] uppercase">
         <span className="flex items-center gap-2">
-          <span className="size-[7px] rounded-full bg-accent shadow-[0_0_0_4px_oklch(0.46_0.17_264/.18)]" />
+          <span className="size-[7px] rounded-full bg-accent shadow-[0_0_0_4px_oklch(0.54_0.18_42/.2)]" />
           Canlı Hesaplayıcı
         </span>
       </div>

@@ -3,8 +3,11 @@
 import { useEffect } from "react";
 import { pct, signed, tl, upperTr } from "@/lib/format";
 import { PNAME } from "@/lib/constants";
+import { calc } from "@/lib/calc";
 import { downloadReceiptPng, receiptText } from "@/lib/png";
 import { useApp } from "../app-provider";
+
+const DEMO = calc({ price: "899", cost: "420", comm: "18", ship: "39", target: "", kdv: 20, stopaj: 0, premium: false });
 
 const FEED_T = ["translateY(0)", "translateY(-14px)", "translateY(-101%)"] as const;
 
@@ -25,6 +28,8 @@ export function Receipt() {
     goPremium,
   } = useApp();
   const locked = !premium;
+  const sample = !hasPrice;
+  const v = sample ? DEMO : r;
 
   /* fiş ekran dışındayken mobilde alt çubuk görünsün */
   useEffect(() => {
@@ -36,12 +41,12 @@ export function Receipt() {
   }, [receiptRef, setRcptVis]);
 
   const lines: [string, string, number][] = [
-    ["Satış fiyatı", tl(r.P), 600],
-    ["Komisyon kesintisi", "−" + tl(r.commAmt), 400],
-    ["Kargo gideri", "−" + tl(r.S), 400],
-    ["Ürün maliyeti", "−" + tl(r.C), 400],
-    ["KDV kesintisi (net)", premium ? "−" + tl(r.kdvAmt) : "PRO ·  —", 400],
-    ["Gelir vergisi", premium ? "−" + tl(r.tax) : "PRO ·  —", 400],
+    ["Satış fiyatı", tl(v.P), 600],
+    ["Komisyon kesintisi", "−" + tl(v.commAmt), 400],
+    ["Kargo gideri", "−" + tl(v.S), 400],
+    ["Ürün maliyeti", "−" + tl(v.C), 400],
+    ["KDV kesintisi (net)", premium && !sample ? "−" + tl(v.kdvAmt) : "PRO ·  —", 400],
+    ["Gelir vergisi", premium && !sample ? "−" + tl(v.tax) : "PRO ·  —", 400],
   ];
 
   const copyDetails = () => {
@@ -108,8 +113,7 @@ export function Receipt() {
             </div>
             <div className="my-3 border-t border-dashed border-ink" />
 
-            {hasPrice ? (
-              <>
+            <div className={sample ? "opacity-45 select-none" : ""}>
                 <div className="flex flex-col gap-1.5 max-[640px]:gap-1">
                   {lines.map(([label, value, w]) => (
                     <div key={label} className="flex justify-between gap-3 tabular-nums">
@@ -121,30 +125,18 @@ export function Receipt() {
                 <div className="my-3.5 border-t-[3px] border-double border-ink max-[640px]:my-2.5" />
                 <div className="flex items-baseline justify-between">
                   <span className="font-semibold tracking-[.12em]">NET KÂR</span>
-                  <span className="text-[11.5px] text-muted">Kâr marjı: %{pct(r.margin)}</span>
+                  <span className="text-[11.5px] text-muted">Kâr marjı: %{pct(v.margin)}</span>
                 </div>
                 <div
                   className="mt-1.5 font-sans text-[clamp(40px,5vw,54px)] leading-[1.05] max-[640px]:text-[38px] font-bold tracking-[-.035em] tabular-nums"
-                  style={{ color: r.net >= 0 ? "#14140F" : "oklch(0.55 0.17 28)" }}
+                  style={{ color: v.net >= 0 ? "#14140F" : "oklch(0.55 0.17 28)" }}
                 >
-                  {signed(r.net)}
+                  {signed(v.net)}
                 </div>
-              </>
-            ) : (
-              <div className="flex flex-col items-center gap-3.5 px-1 pt-[34px] pb-[26px] text-center max-[640px]:pt-4 max-[640px]:pb-2">
-                <div className="flex w-full flex-col gap-[7px]">
-                  {["100%", "82%", "92%", "70%"].map((w) => (
-                    <span key={w} className="h-2 rounded-[2px] bg-ink/[.07]" style={{ width: w }} />
-                  ))}
-                </div>
-                <span className="mt-3.5 font-sans text-2xl leading-[1.15] font-bold tracking-[-.02em]">
-                  Fiyatı gir,
-                  <br />
-                  fişin basılsın.
-                </span>
-                <span className="text-[11.5px] tracking-[.04em] text-muted">
-                  Satış fiyatı girildiğinde hesap burada belirir.
-                </span>
+            </div>
+            {sample && (
+              <div className="mt-3 text-center font-mono text-[11px] tracking-[.1em] text-accent uppercase">
+                ↑ Örnek hesap · kendi fiyatını yaz
               </div>
             )}
 

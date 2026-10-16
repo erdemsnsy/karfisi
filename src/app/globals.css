@@ -6,8 +6,8 @@
 }
 
 @theme {
-  --color-paper: #eeebe2;
-  --color-card: #f7f5ef;
+  --color-paper: #ebe5d5;
+  --color-card: #f5f1e6;
   --color-receipt: #fbfaf5;
   --color-ink: #14140f;
   --color-ink-hover: #2e2e26;
@@ -18,9 +18,9 @@
   --color-dim: #a9a79b;
   --color-dim-2: #c9c7ba;
   --color-dim-3: #8e8c80;
-  --color-accent: oklch(0.46 0.17 264);
-  --color-accent-hover: oklch(0.53 0.17 264);
-  --color-accent-light: oklch(0.83 0.08 264);
+  --color-accent: oklch(0.54 0.18 42);
+  --color-accent-hover: oklch(0.6 0.18 42);
+  --color-accent-light: oklch(0.86 0.08 55);
   --color-loss: oklch(0.55 0.17 28);
   --color-loss-light: oklch(0.75 0.15 28);
 }

@@ -224,10 +224,10 @@ export function Checkout() {
                 <StepTitle n={3} title="Kart bilgileri" sub="Banka kartı veya kredi kartı ile ödeyebilirsin." />
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] items-center gap-[22px]">
                   <div
-                    className="relative flex aspect-[1.586] w-full max-w-[260px] flex-col justify-between justify-self-center overflow-hidden rounded-[14px] px-4 py-3.5 text-card shadow-[0_22px_44px_oklch(0.4_0.15_264/.32)]"
+                    className="relative flex aspect-[1.586] w-full max-w-[260px] flex-col justify-between justify-self-center overflow-hidden rounded-[14px] px-4 py-3.5 text-card shadow-[0_22px_44px_oklch(0.4_0.15_42/.32)]"
                     style={{
                       background:
-                        "linear-gradient(135deg,oklch(0.32 0.14 264),oklch(0.46 0.17 264) 55%,oklch(0.56 0.15 250))",
+                        "linear-gradient(135deg,oklch(0.36 0.12 40),oklch(0.54 0.18 42) 55%,oklch(0.64 0.16 55))",
                     }}
                   >
                     <div className="absolute -top-[70px] -right-[70px] size-[230px] rounded-full border border-card/[.18]" />

@@ -150,7 +150,7 @@ export function ProfileModal() {
                     className="min-h-1 w-full rounded-t-[5px]"
                     style={{
                       height: Math.max(3, (Math.abs(v) / bMax) * 100) + "%",
-                      background: v >= 0 ? "oklch(0.83 0.08 264)" : "oklch(0.55 0.17 28)",
+                      background: v >= 0 ? "oklch(0.86 0.08 55)" : "oklch(0.55 0.17 28)",
                     }}
                   />
                 </div>
