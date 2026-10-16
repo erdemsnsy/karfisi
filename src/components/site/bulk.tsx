@@ -6,12 +6,6 @@ import { SAMPLE } from "@/lib/constants";
 import { pct, signed, tl } from "@/lib/format";
 import { useApp } from "../app-provider";
 
-const STEPS = [
-  "Sütunlar: ürün, fiyat, maliyet, komisyon (%), kargo",
-  "Dosyayı CSV olarak kaydedip yükle",
-  "Raporu Excel veya PDF olarak indir",
-];
-
 const COLS = "grid-cols-[minmax(0,1fr)_84px_52px_96px] max-[640px]:grid-cols-[minmax(0,1fr)_58px_34px_70px] max-[640px]:gap-2";
 
 export function Bulk() {
@@ -56,30 +50,15 @@ export function Bulk() {
 
   return (
     <section id="toplu" className="overflow-hidden bg-ink text-paper">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] items-stretch gap-x-[clamp(40px,6vw,96px)] gap-y-12 px-[clamp(20px,4vw,48px)] py-[clamp(40px,5vw,68px)] max-[640px]:gap-y-7 max-[640px]:py-10">
-        <div className="relative flex flex-col justify-between gap-6 py-2 max-[640px]:gap-5 max-[640px]:py-0">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] items-stretch gap-x-[clamp(40px,6vw,96px)] gap-y-8 px-[clamp(20px,4vw,48px)] py-[clamp(40px,5vw,68px)] max-[640px]:gap-y-7 max-[640px]:py-10">
+        <div className="relative flex flex-col justify-center gap-6 py-2 max-[640px]:gap-5 max-[640px]:py-0">
           <div>
-            <div className="font-mono text-xs tracking-[.12em] text-accent-light uppercase">
-              Premium Araç · Toplu Hesaplama
-            </div>
-            <h2 className="mt-4 mb-0 text-[clamp(38px,4.4vw,64px)] leading-[.95] max-[640px]:mt-3 max-[640px]:text-[30px] font-bold tracking-[-.04em]">
+            <h2 className="m-0 text-[clamp(32px,3.6vw,52px)] leading-[.95] max-[640px]:mt-3 max-[640px]:text-[30px] font-bold tracking-[-.04em]">
               Ürün listeni yükle, kârı tabloda gör.
             </h2>
             <p className="mt-4 mb-0 max-w-[540px] max-[640px]:mt-3 max-[640px]:text-[14.5px] max-[640px]:leading-[1.5] text-[clamp(17px,1.5vw,20px)] leading-[1.55] text-dim-2 text-pretty">
-              Ürünleri tek tek girmek yerine CSV yükle. Her ürünün net kârı ve toplam kâr tek tabloda çıkar, Excel
-              olarak indirebilirsin.
+              CSV yükle (sütunlar: ürün, fiyat, maliyet, komisyon %, kargo). Her ürünün net kârı ve toplam kâr tek tabloda çıkar, Excel olarak indirebilirsin.
             </p>
-          </div>
-          <div className="flex flex-col border-t border-paper/[.18]">
-            {STEPS.map((t, i) => (
-              <div
-                key={t}
-                className="grid grid-cols-[44px_minmax(0,1fr)] max-[640px]:grid-cols-[28px_minmax(0,1fr)] items-baseline gap-3 border-b border-paper/[.12] py-3 max-[640px]:py-2"
-              >
-                <span className="font-mono text-[13px] text-dim">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-[clamp(17px,1.4vw,19px)] leading-[1.4] max-[640px]:text-[14px]">{t}</span>
-              </div>
-            ))}
           </div>
           <div className="flex flex-wrap items-center gap-2.5">
             <button
@@ -127,13 +106,10 @@ export function Bulk() {
                 return (
                   <div
                     key={i}
-                    className={`grid ${COLS} items-center gap-3 border-b border-dashed border-ink/[.22] py-[11px] max-[640px]:py-2`}
+                    className={`grid ${COLS} items-center gap-3 border-b border-dashed border-ink/[.22] py-2 max-[640px]:py-1.5`}
                   >
                     <span className="flex min-w-0 flex-col gap-0.5">
                       <span className="truncate font-sans text-[15.5px] font-semibold max-[640px]:text-[13.5px]">{row[0]}</span>
-                      <span className="text-[11px] text-muted-2 max-[640px]:hidden">
-                        maliyet {tl(row[2])} · kargo {tl(row[4])}
-                      </span>
                     </span>
                     <span className="text-right">{tl(row[1])}</span>
                     <span className="text-right text-muted">%{pct(row[3])}</span>
