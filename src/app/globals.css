@@ -6,9 +6,9 @@
 }
 
 @theme {
-  --color-paper: #ebe5d5;
-  --color-card: #f5f1e6;
-  --color-receipt: #fbfaf5;
+  --color-paper: #fafaf8;
+  --color-card: #ffffff;
+  --color-receipt: #fffffd;
   --color-ink: #14140f;
   --color-ink-hover: #2e2e26;
   --color-ink-2: #3c3b33;
