@@ -79,16 +79,17 @@ export function Receipt() {
     "flex items-center gap-2 border-0 bg-transparent px-1 py-2 font-mono text-[12.5px] tracking-[.1em] uppercase underline decoration-transparent underline-offset-[5px] transition-[opacity,text-decoration-color] duration-150 hover:opacity-100 hover:decoration-ink";
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 px-[clamp(0px,1vw,12px)] py-0 text-ink">
+    <>
+    <div className="flex h-full flex-col items-center text-ink">
       <div
         ref={receiptRef}
-        className="w-full max-w-[480px] drop-shadow-[0_18px_30px_rgba(20,20,15,.14)] drop-shadow-[0_2px_4px_rgba(20,20,15,.08)]"
+        className="flex w-full max-w-[480px] flex-1 flex-col drop-shadow-[0_18px_30px_rgba(20,20,15,.14)] drop-shadow-[0_2px_4px_rgba(20,20,15,.08)]"
       >
         {/* yazıcı ağzı */}
         <div className="relative z-2 h-2.5 rounded-full bg-ink shadow-[inset_0_-2px_0_rgba(255,255,255,.12)]" />
-        <div className="-mt-[5px] mr-2.5 ml-2.5 overflow-hidden">
+        <div className="-mt-[5px] mr-2.5 ml-2.5 flex flex-1 flex-col overflow-hidden">
           <div
-            className="receipt-edge relative bg-receipt px-6 pt-[34px] pb-11 font-mono text-[13px] leading-normal text-ink max-[640px]:pt-6 max-[640px]:pb-8 max-[640px]:text-[12.5px]"
+            className="receipt-edge relative flex flex-1 flex-col bg-receipt px-6 pt-[34px] pb-11 font-mono text-[13px] leading-normal text-ink max-[640px]:pt-6 max-[640px]:pb-8 max-[640px]:text-[12.5px]"
             style={{
               transform: FEED_T[feed],
               transition: feed ? "none" : `transform ${feedDur}s cubic-bezier(.2,.8,.2,1)`,
@@ -140,12 +141,14 @@ export function Receipt() {
               </div>
             )}
 
+            <div className="flex-1" />
             <div className="barcode mt-[26px] h-[46px] max-[640px]:mt-4 max-[640px]:h-8" />
           </div>
         </div>
       </div>
+    </div>
 
-      <div className="flex w-full max-w-[410px] items-center justify-center gap-[22px] pt-0.5">
+    <div className="flex items-center justify-center gap-[22px]" style={{ gridColumn: "1 / -1" }}>
         <button onClick={saveHistory} className={`${action} font-semibold`}>
           <span className="text-sm">+</span>Kaydet
         </button>
@@ -157,7 +160,7 @@ export function Receipt() {
         <button onClick={download} className={`${action} opacity-[.72]`}>
           <span className="text-sm">↓</span>İndir
         </button>
-      </div>
     </div>
+    </>
   );
 }
