@@ -31,6 +31,7 @@ export function CalculatorForm() {
     applySuggested,
     openModal,
     goPremium,
+    scrollToId,
     history,
     fillFromHistory,
   } = useApp();
@@ -133,9 +134,12 @@ export function CalculatorForm() {
         ))}
       </div>
 
-      <div className="flex flex-col gap-5 border-t border-dashed border-ink/30 pt-5">
+      <div className="flex flex-col gap-4 border-t border-dashed border-ink/30 pt-5">
         <button
-          onClick={toggleAdv}
+          onClick={() => {
+            toggleAdv();
+            if (!adv) setTimeout(() => scrollToId("hesapla"), 60);
+          }}
           className="flex w-full items-center justify-between border-0 bg-transparent p-0"
         >
           <span className="flex items-center gap-2.5 text-[17px] font-semibold">
@@ -152,7 +156,7 @@ export function CalculatorForm() {
         {adv && (
           <div className="relative">
             <div
-              className="flex flex-col gap-5"
+              className="flex flex-col gap-3.5"
               style={{ opacity: locked ? 0.35 : 1, pointerEvents: locked ? "none" : "auto" }}
             >
               <OptionGroup
@@ -181,7 +185,7 @@ export function CalculatorForm() {
                     <span className="font-mono text-muted-2">%</span>
                   </span>
                 </label>
-                <div className="flex min-w-[220px] flex-1 items-center justify-between gap-3 rounded-[14px] bg-ink py-3 pr-3 pl-4 text-paper">
+                <div className="flex min-w-[220px] flex-1 items-center justify-between gap-3 rounded-[14px] bg-ink py-2 pr-2 pl-4 text-paper">
                   <span className="flex flex-col gap-0.5">
                     <span className="font-mono text-[10.5px] tracking-[.12em] text-dim uppercase">Önerilen fiyat</span>
                     <span className="text-[22px] font-semibold tabular-nums">
@@ -226,17 +230,17 @@ function OptionGroup({
   onPick: (v: number) => void;
 }) {
   return (
-    <div className="flex flex-col gap-2.5">
+    <div className="flex flex-col gap-1.5">
       <span className="label-mono">{title}</span>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-1.5">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(96px,1fr))] gap-1.5">
         {options.map(([v, short, label]) => (
           <button
             key={v}
             onClick={() => onPick(v)}
-            className={`flex flex-col gap-0.5 rounded-xl border px-3 py-2.5 text-left ${chipClass(value === v)}`}
+            className={`flex flex-col gap-0 rounded-xl border px-2.5 py-1.5 text-left ${chipClass(value === v)}`}
           >
-            <span className="font-mono text-[15px] font-semibold">{short}</span>
-            <span className="text-[12.5px] opacity-75">{label}</span>
+            <span className="font-mono text-[14px] font-semibold">{short}</span>
+            <span className="text-[11.5px] leading-tight opacity-75">{label}</span>
           </button>
         ))}
       </div>
