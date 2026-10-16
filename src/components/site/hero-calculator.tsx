@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useApp } from "../app-provider";
 import { CalculatorForm } from "./calculator-form";
+import { HeroDecor } from "./hero-decor";
 import { Receipt } from "./receipt";
 
 export function HeroCalculator() {
@@ -30,15 +31,17 @@ export function HeroCalculator() {
   };
 
   return (
+    <div className="relative">
+    <HeroDecor />
     <section
       id="top"
-      className="mx-auto max-w-[1520px] px-[clamp(20px,4vw,48px)] pt-[clamp(48px,7vw,96px)]"
+      className="relative mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] pt-[clamp(48px,7vw,96px)]"
     >
-      <h1 className="m-0 max-w-[1300px] text-[clamp(42px,6.8vw,116px)] leading-[.94] font-bold tracking-[-.04em] text-balance max-[640px]:text-[clamp(50px,14.6vw,68px)] max-[640px]:leading-[.92] max-[640px]:tracking-[-.045em]">
+      <h1 className="m-0 max-w-[1100px] text-[clamp(42px,6.4vw,96px)] leading-[.94] font-bold tracking-[-.04em] text-balance max-[640px]:text-[clamp(50px,14.6vw,68px)] max-[640px]:leading-[.92] max-[640px]:tracking-[-.045em]">
         Her satıştan ne kadar <span className="text-accent">kâr kaldığını</span> saniyede gör.
       </h1>
       <div className="mt-8 flex flex-wrap items-end justify-between gap-x-12 gap-y-6 max-[640px]:mt-7 max-[640px]:gap-y-8">
-        <p className="m-0 max-w-[640px] text-[clamp(17px,1.4vw,22px)] leading-normal text-ink-2 text-pretty max-[640px]:text-[18px] max-[640px]:leading-[1.55]">
+        <p className="m-0 max-w-[560px] text-[clamp(17px,1.4vw,20px)] leading-normal text-ink-2 text-pretty max-[640px]:text-[18px] max-[640px]:leading-[1.55]">
           Satış fiyatını ve maliyetini yaz. Komisyon, kargo ve KDV düşülmüş net kârını fiş olarak gör. Tekli hesaplama
           ücretsiz.
         </p>
@@ -68,5 +71,6 @@ export function HeroCalculator() {
         <Receipt />
       </div>
     </section>
+    </div>
   );
 }

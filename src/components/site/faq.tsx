@@ -9,7 +9,7 @@ export function Faq() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section id="sss" className="mx-auto max-w-[1520px] px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)]">
+    <section id="sss" className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)]">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-end gap-x-12 gap-y-6">
         <div>
           <div className="eyebrow">Merak edilenler</div>

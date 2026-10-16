@@ -56,7 +56,7 @@ export function Bulk() {
 
   return (
     <section id="toplu" className="overflow-hidden bg-ink text-paper">
-      <div className="mx-auto grid max-w-[1520px] grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] items-stretch gap-x-[clamp(40px,6vw,96px)] gap-y-12 px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)] max-[640px]:gap-y-7 max-[640px]:py-10">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] items-stretch gap-x-[clamp(40px,6vw,96px)] gap-y-12 px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)] max-[640px]:gap-y-7 max-[640px]:py-10">
         <div className="relative flex flex-col justify-between gap-9 py-2 max-[640px]:gap-5 max-[640px]:py-0">
           <div>
             <div className="font-mono text-xs tracking-[.12em] text-accent-light uppercase">

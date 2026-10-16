@@ -32,7 +32,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink/10 bg-paper/[.86] backdrop-blur-[14px]">
-      <div className="mx-auto flex max-w-[1520px] items-center gap-3 px-[clamp(20px,4vw,48px)] py-3">
+      <div className="mx-auto flex max-w-[1280px] items-center gap-3 px-[clamp(20px,4vw,48px)] py-3">
         <a
           href="#top"
           onClick={() => setMenu(false)}
@@ -89,7 +89,7 @@ export function Header() {
           aria-label="Ana menü"
           className="absolute top-full right-0 left-0 border-b border-ink/10 bg-paper shadow-[0_24px_40px_rgba(20,20,15,.12)] min-[981px]:hidden"
         >
-          <div className="mx-auto max-w-[1520px] px-[clamp(20px,4vw,48px)] pt-2 pb-5">
+          <div className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] pt-2 pb-5">
             {NAV.map(([href, label], i) => (
               <a
                 key={href}

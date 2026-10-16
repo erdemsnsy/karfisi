@@ -24,7 +24,7 @@ export function Pricing() {
 
   return (
     <section id="fiyat" className="border-t border-ink/10 bg-card">
-      <div className="mx-auto max-w-[1520px] px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)]">
+      <div className="mx-auto max-w-[1280px] px-[clamp(20px,4vw,48px)] py-[clamp(56px,7vw,96px)]">
         <SectionHead
           eyebrow="Fiyatlandırma"
           title="Tek ürün ücretsiz, çok ürün Premium."
