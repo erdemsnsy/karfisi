@@ -89,7 +89,7 @@ export function Receipt() {
         <div className="relative z-2 h-2.5 rounded-full bg-ink shadow-[inset_0_-2px_0_rgba(255,255,255,.12)]" />
         <div className="-mt-[5px] mr-2.5 ml-2.5 flex flex-1 flex-col overflow-hidden">
           <div
-            className="receipt-edge relative flex flex-1 flex-col bg-receipt px-6 pt-[34px] pb-11 font-mono text-[13px] leading-normal text-ink max-[640px]:pt-6 max-[640px]:pb-8 max-[640px]:text-[12.5px]"
+            className="receipt-edge relative flex flex-1 flex-col bg-receipt px-6 pt-[34px] pb-11 font-mono text-[13px] leading-normal text-ink max-[640px]:pt-4 max-[640px]:pb-5 max-[640px]:text-[12px]"
             style={{
               transform: FEED_T[feed],
               transition: feed ? "none" : `transform ${feedDur}s cubic-bezier(.2,.8,.2,1)`,
@@ -136,13 +136,13 @@ export function Receipt() {
                 </div>
             </div>
             {sample && (
-              <div className="mt-3 text-center font-mono text-[11px] tracking-[.1em] text-accent uppercase">
+              <div className="mt-3 text-center font-mono text-[11px] tracking-[.1em] text-accent uppercase max-[640px]:hidden">
                 ↑ Örnek hesap · kendi fiyatını yaz
               </div>
             )}
 
             <div className="flex-1" />
-            <div className="barcode mt-[26px] h-[46px] max-[640px]:mt-4 max-[640px]:h-8" />
+            <div className="barcode mt-[26px] h-[46px] max-[640px]:mt-3 max-[640px]:h-6" />
           </div>
         </div>
       </div>

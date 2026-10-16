@@ -1,6 +1,6 @@
 "use client";
 
-import { pct, signed } from "@/lib/format";
+import { pct, signed, tl } from "@/lib/format";
 import { useApp } from "../app-provider";
 
 export function MobileBar() {
@@ -19,12 +19,17 @@ export function MobileBar() {
           {hasPrice ? `NET KÂR · MARJ %${pct(result.margin)}` : "CANLI NET KÂR"}
         </span>
         {hasPrice ? (
+          <>
           <span
             className="text-[22px] font-bold tracking-[-.03em] tabular-nums"
             style={{ color: result.net >= 0 ? "#EBE5D5" : "oklch(0.75 0.15 28)" }}
           >
             {signed(result.net)}
           </span>
+          <span className="truncate font-mono text-[10.5px] text-dim">
+            Kom. −{tl(result.commAmt)} · Kargo −{tl(result.S)} · Mal. −{tl(result.C)}
+          </span>
+          </>
         ) : (
           <span className="text-[17px] font-semibold tracking-[-.02em] text-dim-2">Fiyatı gir, fişin basılsın</span>
         )}
