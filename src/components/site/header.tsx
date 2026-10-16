@@ -13,6 +13,23 @@ const NAV = [
 export function Header() {
   const { history, premium, openModal, goPremium } = useApp();
   const [menu, setMenu] = useState(false);
+  const [active, setActive] = useState("");
+
+  /* Ekranda olan bölümün menü bağlantısı vurgulansın */
+  useEffect(() => {
+    const els = NAV.map(([h]) => document.getElementById(h.slice(1))).filter((e): e is HTMLElement => !!e);
+    if (!els.length || !window.IntersectionObserver) return;
+    const io = new IntersectionObserver(
+      (es) => {
+        const hit = es.find((e) => e.isIntersecting);
+        if (hit) setActive("#" + hit.target.id);
+        else if (window.scrollY < 200) setActive("");
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 
   /* Menü açıkken Esc kapatır; geniş ekrana geçilirse kendiliğinden kapanır */
   useEffect(() => {
@@ -31,8 +48,8 @@ export function Header() {
   const line = "absolute left-[11px] h-[1.5px] w-[18px] rounded-full bg-ink transition-all duration-300 ease-out";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink/10 bg-paper/[.86] backdrop-blur-[14px]">
-      <div className="mx-auto flex max-w-[1280px] items-center gap-3 px-[clamp(20px,4vw,48px)] py-3">
+    <header className="sticky top-0 z-40 border-b border-ink/10 bg-paper/[.92] backdrop-blur-[14px]">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-[auto_1fr] items-center gap-3 px-[clamp(20px,4vw,48px)] py-3 min-[981px]:grid-cols-[1fr_auto_1fr]">
         <a
           href="#top"
           onClick={() => setMenu(false)}
@@ -40,20 +57,20 @@ export function Header() {
         >
           <span className="text-2xl leading-none font-extrabold tracking-[-.04em]">Kâr Fişi</span>
         </a>
-        <div className="flex-1" />
-        <nav className="hidden min-w-0 gap-0.5 text-[15px] whitespace-nowrap min-[981px]:flex">
+        <nav className="hidden min-w-0 gap-1 rounded-full border border-ink/10 bg-card p-1 text-[15px] whitespace-nowrap min-[981px]:flex">
           {NAV.map(([href, label]) => (
             <a
               key={href}
               href={href}
-              className="rounded-full px-3 py-2 no-underline hover:bg-ink/[.07] hover:text-ink"
+              className={`rounded-full px-4 py-1.5 no-underline transition-colors hover:text-ink ${
+                active === href ? "bg-ink text-paper hover:text-paper" : "hover:bg-ink/[.07]"
+              }`}
             >
               {label}
             </a>
           ))}
         </nav>
-        <div className="flex-1" />
-        <div className="flex flex-none items-center gap-2 whitespace-nowrap">
+        <div className="flex flex-none items-center justify-end gap-2 whitespace-nowrap">
           <button
             onClick={() => openModal("profile")}
             className="flex items-center gap-2 rounded-full border-0 bg-transparent px-3.5 py-2.5 text-[15px] hover:bg-ink/[.07] max-[520px]:hidden"
